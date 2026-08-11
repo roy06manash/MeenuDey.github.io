@@ -3,432 +3,222 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Publications — Meenu Rani Dey</title>
-  <meta name="author" content="Meenu Rani Dey">
+  <title>Publications — NG Lab, IIT Guwahati</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css">
   <style>
     :root {
-      --navy: #0f1f3d;
-      --teal: #0d7a6e;
-      --teal-light: #12a898;
-      --sand: #f5f2ec;
-      --warm-white: #fdfcfa;
-      --text-dark: #1a1a2e;
-      --text-mid: #4a5568;
-      --text-light: #718096;
-      --border: #e2ddd6;
-      --nav-h: 60px;
+      --navy: #0f1f3d; --teal: #1d4ed8; --teal-light: #2f7de0; --sand: #f5f2ec;
+      --warm-white: #fdfcfa; --text-dark: #1a1a2e; --text-mid: #3d4a5e; --text-light: #64748b;
+      --border: #e2ddd6; --nav-h: 60px;
     }
-
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--warm-white);
-      color: var(--text-dark);
-      line-height: 1.65;
+    body { font-family: 'Manrope', sans-serif; background: radial-gradient(ellipse 1200px 700px at 15% -10%, #e6f0fd 0%, var(--warm-white) 45%), radial-gradient(ellipse 900px 600px at 100% 0%, #eef2fb 0%, var(--warm-white) 40%), var(--warm-white); color: var(--text-dark); line-height: 1.65; min-height: 100vh; }
+    .top-bar {
+      background: linear-gradient(120deg, var(--navy) 0%, #143a52 100%);
+      color: rgba(255,255,255,0.85);
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      padding: 0.4rem 2.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .top-bar-logo {
+      height: 22px;
+      width: auto;
+      object-fit: contain;
     }
 
-    /* ── NAV ── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      height: var(--nav-h);
-      background: var(--navy);
+    header {
+      background: linear-gradient(100deg, #ffffff 0%, #eef4fc 55%, #eef2fb 100%);
+      border-bottom: 2px solid var(--border);
+      padding: 1rem 2.5rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 2.5rem;
+      gap: 1rem;
+      flex-wrap: wrap;
+      position: sticky;
+      top: 0;
       z-index: 1000;
-      box-shadow: 0 2px 16px rgba(0,0,0,0.18);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.04);
     }
-    .nav-social { display: flex; gap: 1rem; align-items: center; }
-    .nav-social a { color: rgba(255,255,255,0.65); font-size: 1rem; transition: color 0.2s; }
-    .nav-social a:hover { color: var(--teal-light); }
-    .nav-links { display: flex; gap: 0.25rem; align-items: center; }
-    .nav-links a {
-      color: rgba(255,255,255,0.75);
-      text-decoration: none;
-      font-size: 0.875rem;
-      font-weight: 500;
-      letter-spacing: 0.02em;
-      padding: 0.4rem 0.85rem;
-      border-radius: 4px;
-      transition: background 0.2s, color 0.2s;
-    }
-    .nav-links a:hover { background: rgba(255,255,255,0.1); color: #fff; }
-    .nav-links a.active { color: var(--teal-light); }
-
-    /* ── LAYOUT ── */
-    main {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: calc(var(--nav-h) + 2.5rem) 1.5rem 3rem;
-    }
-
-    /* ── PAGE HEADER ── */
-    .page-header {
-      padding-bottom: 1.5rem;
-      border-bottom: 1.5px solid var(--border);
-      margin-bottom: 2rem;
-    }
-    .page-header h1 {
-      font-family: 'DM Serif Display', serif;
-      font-size: 2.2rem;
-      color: var(--navy);
-      margin-bottom: 0.25rem;
-    }
-    .page-header p { font-size: 0.875rem; color: var(--text-light); font-style: italic; }
-    .divider { width: 40px; height: 3px; background: var(--teal); border-radius: 2px; margin: 0.6rem 0 0; }
-
-
-
-    /* ── SECTION LABEL ── */
-    .section-label {
+    .wordmark {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
-      margin: 2rem 0 1rem;
+      gap: 0.9rem;
     }
-    .section-label h2 {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.4rem;
+    .wordmark .inst-name {
+      font-family: 'Sora', sans-serif;
+      font-weight: 800;
+      line-height: 1.1;
+    }
+    .wordmark .inst-name .iit {
+      font-size: 1.9rem;
+      background: linear-gradient(100deg, var(--navy) 0%, #2e6da8 60%, var(--teal-light) 100%);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+      display: block;
+    }
+    .wordmark .inst-name .guwahati {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      background: linear-gradient(100deg, var(--teal) 0%, #38bdf8 100%);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+      display: block;
+    }
+    .wordmark .divider-line {
+      width: 2px;
+      height: 42px;
+      background: linear-gradient(180deg, var(--navy) 0%, var(--teal-light) 100%);
+      border-radius: 2px;
+    }
+    .wordmark .lab-name-plain {
+      font-family: 'Sora', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      background: linear-gradient(100deg, var(--navy) 0%, var(--teal) 100%);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+
+    nav {
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.2rem;
+    }
+    .nav-links { display: flex; gap: 0.2rem; }
+    .nav-links a {
+      display: inline-block;
       color: var(--navy);
-    }
-    .pill {
-      font-size: 0.7rem;
+      text-decoration: none;
+      font-size: 0.92rem;
       font-weight: 700;
-      padding: 0.15rem 0.6rem;
-      border-radius: 20px;
-      letter-spacing: 0.04em;
-    }
-    .pill-patent  { background: #fef3c7; color: #92400e; border: 1px solid #fde68a; }
-    .pill-journal { background: #dbeafe; color: #1e40af; border: 1px solid #bfdbfe; }
-    .pill-conf    { background: #e8f5f3; color: var(--teal); border: 1px solid #a7d9d4; }
-
-    /* ── PUB CARDS ── */
-    .pub-list { display: flex; flex-direction: column; gap: 0.75rem; }
-
-    .pub-card {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 1.1rem 1.4rem;
-      display: grid;
-      grid-template-columns: 52px 1fr;
-      gap: 1rem;
-      align-items: start;
-      transition: box-shadow 0.2s, border-color 0.2s;
-    }
-    .pub-card:hover {
-      box-shadow: 0 4px 18px rgba(0,0,0,0.08);
-      border-color: var(--teal-light);
-    }
-
-    .pub-num {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.1rem;
-      color: var(--teal);
-      font-weight: 700;
-      padding-top: 0.1rem;
-      text-align: center;
-      background: var(--sand);
+      letter-spacing: 0.01em;
+      padding: 0.5rem 0.9rem;
       border-radius: 6px;
-      padding: 0.4rem 0.3rem;
-      line-height: 1.2;
+      border-bottom: 3px solid transparent;
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
     }
-
-    .pub-body { font-size: 0.875rem; color: var(--text-mid); line-height: 1.65; }
-
-    /* highlight author name */
-    .pub-body .author-me {
-      font-weight: 600;
-      color: var(--navy);
-    }
-
-    .pub-venue {
-      display: inline-block;
-      margin-top: 0.45rem;
-      font-size: 0.78rem;
-      font-weight: 600;
+    .nav-links a:hover { color: var(--teal); background: rgba(29,78,216,0.08); }
+    .nav-links a.active {
       color: var(--teal);
-      background: #e8f5f3;
-      border-radius: 4px;
-      padding: 0.15rem 0.55rem;
+      background: rgba(29,78,216,0.1);
+      border-bottom-color: var(--teal-light);
     }
 
-    .pub-status {
-      display: inline-block;
-      margin-top: 0.45rem;
-      margin-left: 0.4rem;
-      font-size: 0.72rem;
+    main { width: 100%; max-width: 1100px; margin: 0 auto; padding: 3rem 2.5rem 4rem; }
+    .page-title { font-family: 'Sora', sans-serif; font-weight: 800; font-size: 2.2rem; letter-spacing: -0.01em; margin-bottom: 0.4rem; color: var(--navy); }
+    .page-title-accent { width: 52px; height: 4px; background: var(--teal); border-radius: 2px; margin-bottom: 1rem; }
+    .page-sub { font-size: 1rem; color: var(--text-mid); font-weight: 400; margin-bottom: 1.4rem; max-width: 700px; line-height: 1.6; }
+    .divider { width: 40px; height: 3px; background: var(--teal); border-radius: 2px; margin-bottom: 1.5rem; }
+    .section-label { display: flex; align-items: center; gap: 0.75rem; margin: 1.8rem 0 0.9rem; }
+    .section-label h2 { font-family: 'Sora', sans-serif; font-weight: 700; font-size: 1.4rem; color: var(--navy); letter-spacing: -0.005em; }
+    .section-label .pill {
+      background: var(--teal); color: #fff; font-size: 0.7rem; font-weight: 600;
+      padding: 0.15rem 0.6rem; border-radius: 20px; letter-spacing: 0.04em;
+    }
+    .pub-list { display: flex; flex-direction: column; gap: 0.6rem; counter-reset: pub; }
+    .pub-item {
+      background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 0.8rem 1.1rem;
+      font-size: 0.87rem; color: var(--text-mid); line-height: 1.55; position: relative; padding-left: 2.6rem;
+    }
+    .pub-item::before {
+      counter-increment: pub; content: counter(pub);
+      position: absolute; left: 0.9rem; top: 0.8rem;
+      font-size: 0.75rem; font-weight: 700; color: var(--teal);
+    }
+    .pub-item strong { color: var(--text-dark); }
+    .pub-item em { color: var(--navy); font-style: normal; font-weight: 600; }
+    .pub-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      margin-left: 0.5rem;
+      color: var(--teal);
       font-weight: 700;
-      color: #92400e;
-      background: #fef3c7;
-      border-radius: 4px;
-      padding: 0.15rem 0.55rem;
-      letter-spacing: 0.02em;
+      font-size: 0.8rem;
+      text-decoration: none;
+      white-space: nowrap;
     }
-
-    /* ── FOOTER ── */
-    footer {
-      text-align: center;
-      padding: 1.5rem;
-      font-size: 0.78rem;
-      color: var(--text-light);
-      border-top: 1px solid var(--border);
-      margin-top: 2rem;
-    }
-
-    @media (max-width: 600px) {
-      nav { padding: 0 1rem; }
-      .nav-links a { font-size: 0.78rem; padding: 0.35rem 0.5rem; }
-      main { padding-top: calc(var(--nav-h) + 1.5rem); }
-      .pub-card { grid-template-columns: 40px 1fr; gap: 0.75rem; }
+    .pub-link:hover { text-decoration: underline; }
+    .pub-link i { font-size: 0.7rem; }
+    footer { text-align: center; padding: 1rem; font-size: 0.78rem; color: var(--text-light); border-top: 1px solid var(--border); margin-top: 1.5rem; }
+    @media (max-width: 680px) {
+      nav { padding: 0 1rem; } .nav-links a { padding: 0.35rem 0.5rem; font-size: 0.78rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav>
-    <div class="nav-social">
-      <a href="mailto:rmeenu@iitg.ac.in" title="Email"><i class="fas fa-envelope"></i></a>
-      <a href="https://github.com/MeenuDey" title="GitHub" target="_blank"><i class="fab fa-github"></i></a>
-      <a href="https://www.linkedin.com/in/meenu-dey-691653b1/" title="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
+  <div class="top-bar">
+    <img class="top-bar-logo" src="IIT_Guwahati_Logo.svg.webp" alt="IIT Guwahati" onerror="this.style.display='none'">
+    Indian Institute of Technology Guwahati
+  </div>
+
+  <header>
+    <div class="wordmark">
+      <div class="inst-name">
+        <span class="iit">IIT</span>
+        <span class="guwahati">GUWAHATI</span>
+      </div>
+      <div class="divider-line"></div>
+      <div class="lab-name-plain">Next Generation Lab</div>
     </div>
-    <div class="nav-links">
-      <a href="/">About Me</a>
-      <a href="/education.html">Education</a>
-      <a href="/publications.html" class="active">Publications</a>
-      <a href="/achivements.html">Achievements</a>
-      <a href="/experience.html">Experience</a>
-    </div>
-  </nav>
+    <nav>
+      <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="research.html">Research</a>
+      <a href="publications.html" class="active">Publications</a>
+      <a href="people.html">People</a>
+      <a href="news.html">News</a>
+      </div>
+    </nav>
+  </header>
 
   <main>
+    <h1 class="page-title">Publications</h1>
+    <div class="page-title-accent"></div>
+    <p class="page-sub">Journal and conference publications from the NG Lab.</p>
 
-    <!-- Page Header -->
-    <div class="page-header">
-      <h1>Publications</h1>
-      <p>Journals, conferences &amp; patents &nbsp;·&nbsp;
-        <a href="https://scholar.google.com/citations?user=i1BqEP8AAAAJ&hl=en&oi=ao" target="_blank"
-           style="color:var(--teal);font-style:normal;font-weight:600;">
-          <i class="fas fa-graduation-cap"></i>&nbsp;Google Scholar
-        </a>
-      </p>
-      <div class="divider"></div>
-    </div>
-
-
-
-    <!-- ── PATENTS ── -->
-    <div class="section-label">
-      <h2>Patents</h2>
-      <span class="pill pill-patent">INDIAN PATENT</span>
-    </div>
+    <div class="section-label"><h2>Journal Publications</h2></div>
     <div class="pub-list">
-      <div class="pub-card">
-        <div class="pub-num">P01</div>
-        <div class="pub-body">
-          Swagat Ranjan Sahoo, Ayush Singh, <span class="author-me">Meenu Rani Dey</span>, Shiva Gupta, Vipin Kr. Kushwaha, Soubhagya Ranjan Mallick, Prasanna Dwivedi,
-          "A System for Edge-Aware Machine Learning Framework for Context-Switching in Multi-Modal IoT Environments."
-          <br><span class="pub-venue">Indian Patent</span>
-          <span class="pub-venue" style="background:#f0fdf4;color:#166534;">Published · May 2025</span>
-        </div>
-      </div>
+      <div class="pub-item"><strong>M. R. Dey and M. Patra</strong>, "Secure Handover in 5G-V2X: Detecting and Localizing DoS Attack to Ensure Reliable Communication," <em>IEEE Transactions on Intelligent Transportation Systems</em>, vol. 26, no. 6, pp. 7610-7623, June 2025. <a href="https://scholar.google.com/scholar?q=Secure%20Handover%20in%205G-V2X%3A%20Detecting%20and%20Localizing%20DoS%20Attack%20to%20Ensure%20Reliable%20Communication" target="_blank" rel="noopener" class="pub-link">View Paper <i class="fas fa-external-link-alt"></i></a></div>
+      <div class="pub-item"><strong>A. Lekharu, A. Samanta, A. Sur and M. Patra</strong>, "Content-Aware Caching at the Mobile Edge Network Using Federated Learning," <em>IEEE Transactions on Emerging Topics in Computational Intelligence</em>, vol. 9, no. 2, pp. 1166-1176, April 2025. <a href="https://scholar.google.com/scholar?q=Content-Aware%20Caching%20at%20the%20Mobile%20Edge%20Network%20Using%20Federated%20Learning" target="_blank" rel="noopener" class="pub-link">View Paper <i class="fas fa-external-link-alt"></i></a></div>
+      <div class="pub-item"><strong>Anirban Lekharu, Pranav Gupta, Arijit Sur, and Moumita Patra</strong>, "Collaborative Video Caching in the Edge Network using Deep Reinforcement Learning," <em>ACM Trans. Internet Things</em> 5, 3, Article 16, August 2024, 26 pages. <a href="https://scholar.google.com/scholar?q=Collaborative%20Video%20Caching%20in%20the%20Edge%20Network%20using%20Deep%20Reinforcement%20Learning" target="_blank" rel="noopener" class="pub-link">View Paper <i class="fas fa-external-link-alt"></i></a></div>
+      <div class="pub-item"><strong>A. Lekharu, A. P. S. Chauhan, A. Sur and M. Patra</strong>, "Reinforcement Learning-Based Adaptive Bitrate Caching at MEC Server," <em>IEEE Transactions on Network and Service Management</em>, vol. 21, no. 3, pp. 3292-3304, June 2024. <a href="https://scholar.google.com/scholar?q=Reinforcement%20Learning-Based%20Adaptive%20Bitrate%20Caching%20at%20MEC%20Server" target="_blank" rel="noopener" class="pub-link">View Paper <i class="fas fa-external-link-alt"></i></a></div>
+      <div class="pub-item"><strong>M. R. Dey, M. Patra and P. Mishra</strong>, "Efficient Detection and Localization of DoS Attacks in Heterogeneous Vehicular Networks," <em>IEEE Transactions on Vehicular Technology</em>, vol. 72, no. 5, pp. 5597-5611, May 2023. <a href="https://scholar.google.com/scholar?q=Efficient%20Detection%20and%20Localization%20of%20DoS%20Attacks%20in%20Heterogeneous%20Vehicular%20Networks" target="_blank" rel="noopener" class="pub-link">View Paper <i class="fas fa-external-link-alt"></i></a></div>
+      <div class="pub-item"><strong>S.R Sahoo, M. Patra, A. Gupta</strong>, "AALB: Application Aware Load Balancing Algorithm for Road Side Units," <em>Elsevier Vehicular Communications</em>, Volume 36, January 2022. <a href="https://scholar.google.com/scholar?q=AALB%3A%20Application%20Aware%20Load%20Balancing%20Algorithm%20for%20Road%20Side%20Units" target="_blank" rel="noopener" class="pub-link">View Paper <i class="fas fa-external-link-alt"></i></a></div>
+      <div class="pub-item"><strong>M. Najm, M. Patra and V. Tamarapalli</strong>, "Cost-and-Delay Aware Dynamic Resource Allocation in Federated Vehicular Clouds," <em>IEEE Transactions on Vehicular Technology</em>, Volume 70, no. 6, pp. 6159-6171, June 2021. <a href="https://scholar.google.com/scholar?q=Cost-and-Delay%20Aware%20Dynamic%20Resource%20Allocation%20in%20Federated%20Vehicular%20Clouds" target="_blank" rel="noopener" class="pub-link">View Paper <i class="fas fa-external-link-alt"></i></a></div>
     </div>
 
-    <!-- ── JOURNALS ── -->
-    <div class="section-label">
-      <h2>Journal Articles</h2>
-      <span class="pill pill-journal">PEER-REVIEWED</span>
-    </div>
+    <div class="section-label"><h2>Conference Publications</h2><span class="pill">2021–2026</span></div>
     <div class="pub-list">
-
-      <div class="pub-card">
-        <div class="pub-num">J03</div>
-        <div class="pub-body">
-          <span class="author-me">Meenu Rani Dey</span>, Moumita Patra, and Prabhat Mishra,
-          "Efficient detection and localization of DoS attacks in heterogeneous vehicular networks."
-          <br><span class="pub-venue">IEEE Transactions on Vehicular Technology</span>
-          · vol. 72, pp. 5597–5611, 2023
-        </div>
-      </div>
-
-      <div class="pub-card">
-        <div class="pub-num">J02</div>
-        <div class="pub-body">
-          <span class="author-me">Meenu Rani Dey</span> and Moumita Patra,
-          "Handover in 5G-V2X: Detecting and Localizing DoS Attack to Ensure Reliable Communication."
-          <br><span class="pub-venue">IEEE Transactions on Intelligent Transportation Systems</span>
-          · vol. 26, pp. 7610–7623, 2025
-        </div>
-      </div>
-
-      <div class="pub-card">
-        <div class="pub-num">J01</div>
-        <div class="pub-body">
-          <span class="author-me">Meenu Rani Dey</span> and Moumita Patra,
-          "Is Trust Enough?: Sybil Attack Detection During Trust based Cluster Head Selection in 5G-V2X Networks."
-          <br><span class="pub-venue">IEEE Transactions on Vehicular Technology</span>
-          <span class="pub-status">Under Review · 2025</span>
-        </div>
-      </div>
-
+      <div class="pub-item"><strong>Krishnendu T.S., M. Patra, T. Venkatesh</strong>, "QoS-Driven User Offloading via IRS in UEC-6G Networks," <em>COMSNETS</em> 2026. <a href="https://scholar.google.com/scholar?q=QoS-Driven%20User%20Offloading%20via%20IRS%20in%20UEC-6G%20Networks" target="_blank" rel="noopener" class="pub-link">View Paper <i class="fas fa-external-link-alt"></i></a></div>
+      <div class="pub-item"><strong>Paarth Bahety, Prasad Chopade, Krishnendu T. S, Moumita Patra, Renuka Pawar</strong>, "An NS-3/mmWave-Based Simulation Framework for Real-Time Anomaly Detection in UAV-Assisted 6G Networks," <em>COMSNETS</em> 2026. <a href="https://scholar.google.com/scholar?q=An%20NS-3/mmWave-Based%20Simulation%20Framework%20for%20Real-Time%20Anomaly%20Detection%20in%20UAV-Assisted%206G%20Networks" target="_blank" rel="noopener" class="pub-link">View Paper <i class="fas fa-external-link-alt"></i></a></div>
+      <div class="pub-item"><strong>M. R. Dey, A. Bharti and M. Patra</strong>, "Fortifying the 5G Core: Analysing and Detecting DoS Attack from Compromised NFs using HTM," 17th <em>COMSNETS</em>, 2025, pp. 940-944. <a href="https://scholar.google.com/scholar?q=Fortifying%20the%205G%20Core%3A%20Analysing%20and%20Detecting%20DoS%20Attack%20from%20Compromised%20NFs%20using%20HTM" target="_blank" rel="noopener" class="pub-link">View Paper <i class="fas fa-external-link-alt"></i></a></div>
+      <div class="pub-item"><strong>S. Mourya, K. T. S and M. Patra</strong>, "QoS-Driven Cellular Offloading via IRS in UAV-Assisted 6G Networks," 17th <em>COMSNETS</em>, 2025, pp. 1003-1007. <a href="https://scholar.google.com/scholar?q=QoS-Driven%20Cellular%20Offloading%20via%20IRS%20in%20UAV-Assisted%206G%20Networks" target="_blank" rel="noopener" class="pub-link">View Paper <i class="fas fa-external-link-alt"></i></a></div>
+      <div class="pub-item"><strong>M. R. Dey, C. Bhumika, H. N. Ankitha, B. Nethravathi and M. Patra</strong>, "Early Detection of Battery Depletion Attack in 5G-based UAV Networks," <em>IEEE ANTS</em>, Guwahati, India, 2024, pp. 1-3. <a href="https://scholar.google.com/scholar?q=Early%20Detection%20of%20Battery%20Depletion%20Attack%20in%205G-based%20UAV%20Networks" target="_blank" rel="noopener" class="pub-link">View Paper <i class="fas fa-external-link-alt"></i></a></div>
+      <div class="pub-item"><strong>M. R. Dey, P. Nithiyasri and M. Patra</strong>, "Early Detection of DoS Attacks in 5G Core Networks," <em>IEEE ANTS</em>, 2024, pp. 1-6. <a href="https://scholar.google.com/scholar?q=Early%20Detection%20of%20DoS%20Attacks%20in%205G%20Core%20Networks" target="_blank" rel="noopener" class="pub-link">View Paper <i class="fas fa-external-link-alt"></i></a></div>
+      <div class="pub-item"><strong>T. S. Krishnendu, M. Patra and T. Venkatesh</strong>, "Network Slice Admission Control for Enhanced Resource Utilization in 6G Multi-UAV Networks," <em>IEEE ANTS</em>, 2024, pp. 1-6. <a href="https://scholar.google.com/scholar?q=Network%20Slice%20Admission%20Control%20for%20Enhanced%20Resource%20Utilization%20in%206G%20Multi-UAV%20Networks" target="_blank" rel="noopener" class="pub-link">View Paper <i class="fas fa-external-link-alt"></i></a></div>
+      <div class="pub-item"><strong>M. R. Dey, V. R. Rao and M. Patra</strong>, "RAFDD: Relay-Assisted Fast Data Dissemination in 5G-V2X Networks," 16th <em>COMSNETS</em>, 2024, pp. 577-581. <a href="https://scholar.google.com/scholar?q=RAFDD%3A%20Relay-Assisted%20Fast%20Data%20Dissemination%20in%205G-V2X%20Networks" target="_blank" rel="noopener" class="pub-link">View Paper <i class="fas fa-external-link-alt"></i></a></div>
+      <div class="pub-item"><strong>K. Chakraborty, K. T. S, M. Patra and T. Venkatesh</strong>, "A Novel Network Slice Admission Control Scheme in 5G-V2X Communication," 16th <em>COMSNETS</em>, 2024, pp. 786-789. <a href="https://scholar.google.com/scholar?q=A%20Novel%20Network%20Slice%20Admission%20Control%20Scheme%20in%205G-V2X%20Communication" target="_blank" rel="noopener" class="pub-link">View Paper <i class="fas fa-external-link-alt"></i></a></div>
+      <div class="pub-item"><strong>M. R. Dey, S. Kumar and M. Patra</strong>, "TCHDD: Trust-based Cluster Head Selection for Fast Data Dissemination in 5G-V2X Networks," <em>IEEE ANTS</em>, 2023, pp. 1-6. <a href="https://scholar.google.com/scholar?q=TCHDD%3A%20Trust-based%20Cluster%20Head%20Selection%20for%20Fast%20Data%20Dissemination%20in%205G-V2X%20Networks" target="_blank" rel="noopener" class="pub-link">View Paper <i class="fas fa-external-link-alt"></i></a></div>
+      <div class="pub-item"><strong>Himanshu Bisht, Moumita Patra, Sathish Kumar</strong>, "Detection and Localization of DDoS Attack During Inter-Slice Handover in 5G Network Slicing," <em>IEEE CCNC</em>, January 2023, pp. 798-803. <a href="https://scholar.google.com/scholar?q=Detection%20and%20Localization%20of%20DDoS%20Attack%20During%20Inter-Slice%20Handover%20in%205G%20Network%20Slicing" target="_blank" rel="noopener" class="pub-link">View Paper <i class="fas fa-external-link-alt"></i></a></div>
+      <div class="pub-item"><strong>Meenu Rani Dey, Moumita Patra</strong>, "Hand it Over Carefully: Security Breach during Handover in 5G-V2X," <em>IEEE COMSNETS</em>, January 2023, pp. 360-363. <a href="https://scholar.google.com/scholar?q=Hand%20it%20Over%20Carefully%3A%20Security%20Breach%20during%20Handover%20in%205G-V2X" target="_blank" rel="noopener" class="pub-link">View Paper <i class="fas fa-external-link-alt"></i></a></div>
+      <div class="pub-item"><strong>Shivank Thapa, Swagat Ranjan Sahoo, Moumita Patra, Arobinda Gupta</strong>, "A Novel Cost-Aware Load Balancing Algorithm for Road Side Units in Internet of Vehicles," <em>IEEE CNSM</em>, November 2022, pp. 359-363. <a href="https://scholar.google.com/scholar?q=A%20Novel%20Cost-Aware%20Load%20Balancing%20Algorithm%20for%20Road%20Side%20Units%20in%20Internet%20of%20Vehicles" target="_blank" rel="noopener" class="pub-link">View Paper <i class="fas fa-external-link-alt"></i></a></div>
+      <div class="pub-item"><strong>M. Megha Rajendra, M. Patra, and M. Srinivasan</strong>, "Optimal Rate and Distance based Bandwidth Slicing in UAV Assisted 5G Networks," <em>IEEE ICC</em>, May 2022. <a href="https://scholar.google.com/scholar?q=Optimal%20Rate%20and%20Distance%20based%20Bandwidth%20Slicing%20in%20UAV%20Assisted%205G%20Networks" target="_blank" rel="noopener" class="pub-link">View Paper <i class="fas fa-external-link-alt"></i></a></div>
+      <div class="pub-item"><strong>S. R. Sahoo, M. Patra and A. Gupta</strong>, "MDLB: A Matching based Dynamic Load Balancing Algorithm for Road Side Units," <em>IWCMC</em>, June 2021, pp. 291-296. <a href="https://scholar.google.com/scholar?q=MDLB%3A%20A%20Matching%20based%20Dynamic%20Load%20Balancing%20Algorithm%20for%20Road%20Side%20Units" target="_blank" rel="noopener" class="pub-link">View Paper <i class="fas fa-external-link-alt"></i></a></div>
+      <div class="pub-item"><strong>M. R. Dey, M. Patra and P. Mishra</strong>, "Real-Time Detection and Localization of Denial-of-Service Attacks in Heterogeneous Vehicular Networks," <em>DATE</em>, February 2021, pp. 1434-1439. <a href="https://scholar.google.com/scholar?q=Real-Time%20Detection%20and%20Localization%20of%20Denial-of-Service%20Attacks%20in%20Heterogeneous%20Vehicular%20Networks" target="_blank" rel="noopener" class="pub-link">View Paper <i class="fas fa-external-link-alt"></i></a></div>
+      <div class="pub-item"><strong>M. Najm, M. Patra and V. Tamarapalli</strong>, "An Adaptive and Dynamic Allocation of Delay-sensitive Vehicular Services in Federated Cloud," <em>COMSNETS</em>, January 2021, pp. 97-100. <a href="https://scholar.google.com/scholar?q=An%20Adaptive%20and%20Dynamic%20Allocation%20of%20Delay-sensitive%20Vehicular%20Services%20in%20Federated%20Cloud" target="_blank" rel="noopener" class="pub-link">View Paper <i class="fas fa-external-link-alt"></i></a></div>
     </div>
-
-    <!-- ── CONFERENCES ── -->
-    <div class="section-label">
-      <h2>Conference Papers</h2>
-      <span class="pill pill-conf">PROCEEDINGS</span>
-    </div>
-    <div class="pub-list">
-
-      <div class="pub-card">
-        <div class="pub-num">C18</div>
-        <div class="pub-body">
-          <span class="author-me">Meenu Rani Dey</span>, Ashish Bharti, and Moumita Patra,
-          "Fortifying the 5G Core: Analysing and Detecting DoS Attack from Compromised NFs using HTM."
-          <br><span class="pub-venue">IEEE COMSNETS 2025</span> · pp. 940–944
-        </div>
-      </div>
-
-      <div class="pub-card">
-        <div class="pub-num">C17</div>
-        <div class="pub-body">
-          <span class="author-me">Meenu Rani Dey</span>, Nithiyasri Punniyamurthy, and Moumita Patra,
-          "Early Detection of DoS Attacks in 5G Core Networks."
-          <br><span class="pub-venue">IEEE ANTS 2024</span> · pp. 1–6
-        </div>
-      </div>
-
-      <div class="pub-card">
-        <div class="pub-num">C16</div>
-        <div class="pub-body">
-          <span class="author-me">Meenu Rani Dey</span>, Vignesh Ravichandra Rao, and Moumita Patra,
-          "RAFDD: Relay-Assisted Fast Data Dissemination in 5G-V2X Networks."
-          <br><span class="pub-venue">IEEE COMSNETS 2024</span> · pp. 577–581
-        </div>
-      </div>
-
-      <div class="pub-card">
-        <div class="pub-num">C15</div>
-        <div class="pub-body">
-          <span class="author-me">Meenu Rani Dey</span>, Sagar Kumar, and Moumita Patra,
-          "TCHDD: Trust-based Cluster Head Selection for Fast Data Dissemination in 5G-V2X Networks."
-          <br><span class="pub-venue">IEEE ANTS 2023</span> · pp. 1–6
-        </div>
-      </div>
-
-      <div class="pub-card">
-        <div class="pub-num">C14</div>
-        <div class="pub-body">
-          <span class="author-me">Meenu Rani Dey</span> and Moumita Patra,
-          "Hand it over carefully: Security Breach during Handover in 5G-V2X."
-          <br><span class="pub-venue">IEEE COMSNETS 2023</span> · pp. 360–363
-        </div>
-      </div>
-
-      <div class="pub-card">
-        <div class="pub-num">C13</div>
-        <div class="pub-body">
-          <span class="author-me">Meenu Rani Dey</span>, Moumita Patra, and Prabhat Mishra,
-          "Real-time Detection and Localization of Denial-of-Service Attacks in Heterogeneous Vehicular Networks."
-          <br><span class="pub-venue">IEEE DATE 2021</span> · pp. 1434–1439
-        </div>
-      </div>
-
-      <div class="pub-card">
-        <div class="pub-num">C12</div>
-        <div class="pub-body">
-          <span class="author-me">Meenu Rani Dey</span>, Utkalika Satapathy, Pranali Bhanse, Bhabendu Kr. Mohanta, and Debasish Jena,
-          "MagTrack: Detecting Road Surface Condition using Smartphone Sensors and Machine Learning."
-          <br><span class="pub-venue">IEEE TENCON 2019</span> · pp. 2485–2489
-        </div>
-      </div>
-
-      <div class="pub-card">
-        <div class="pub-num">C11</div>
-        <div class="pub-body">
-          <span class="author-me">Meenu Rani Dey</span>, Satadal Sengupta, Bhabendu Kr. Mohanta, Debasish Jena, and Sandip Chakraborty,
-          "Magneto: Leveraging Magnetic Field Changes for Inferring Smartphone App Usage."
-          <br><span class="pub-venue">ACM MobiCom 2018</span> · pp. 777–779
-        </div>
-      </div>
-
-      <div class="pub-card">
-        <div class="pub-num">C10</div>
-        <div class="pub-body">
-          MR Dey, S Sharma, RC Shit, CP Meher, HK Pati,
-          "IoV based real-time smart traffic monitoring system for smart cities using augmented reality."
-          <br><span class="pub-venue">IEEE ViTECoN 2019</span>
-        </div>
-      </div>
-
-      <div class="pub-card">
-        <div class="pub-num">C09</div>
-        <div class="pub-body">
-          BK Mohanta, MR Dey, U Satapathy, SS Panda, D Jena,
-          "GreenVANET: Greening Vehicular Ad-hoc Network by Scheduling Up-link Channel."
-          <br><span class="pub-venue">IEEE ICCCNT 2020</span>
-        </div>
-      </div>
-
-      <div class="pub-card">
-        <div class="pub-num">C08</div>
-        <div class="pub-body">
-          SS Panda, BK Mohanta, MR Dey, U Satapathy, D Jena,
-          "Distributed ledger technology for securing IoT."
-          <br><span class="pub-venue">IEEE ICCCNT 2020</span>
-        </div>
-      </div>
-
-      <div class="pub-card">
-        <div class="pub-num">C07</div>
-        <div class="pub-body">
-          BK Mohanta, U Satapathy, MR Dey, SS Panda, D Jena,
-          "Trust management in cyber physical system using blockchain."
-          <br><span class="pub-venue">IEEE ICCCNT 2020</span>
-        </div>
-      </div>
-
-      <div class="pub-card">
-        <div class="pub-num">C06</div>
-        <div class="pub-body">
-          RK Lenka, U Satapathy, M Dey,
-          "Comparative analysis on automated testing of web-based application."
-          <br><span class="pub-venue">IEEE ICAC3 2018</span>
-        </div>
-      </div>
-
-      <div class="pub-card">
-        <div class="pub-num">C05</div>
-        <div class="pub-body">
-          RK Lenka, MR Dey, P Bhanse, RK Barik,
-          "Performance and load testing: Tools and challenges."
-          <br><span class="pub-venue">IEEE ICRIEECE 2018</span>
-        </div>
-      </div>
-
-      <div class="pub-card">
-        <div class="pub-num">C04</div>
-        <div class="pub-body">
-          MR Dey, U Satapathy, P Bhanse, BK Mohanta, D Jena,
-          "Detecting Road Surface Condition using Smartphone Sensors and Machine Learning."
-          <br><span class="pub-venue">Information Security Lab, IIIT Bhubaneswar</span>
-        </div>
-      </div>
-
-    </div>
-
   </main>
 
   <footer>
-    &copy; 2025 Meenu Rani Dey &nbsp;·&nbsp; IIIT Bhubaneswar &nbsp;·&nbsp;
-    <a href="mailto:rmeenu@iitg.ac.in" style="color:var(--teal);text-decoration:none;">rmeenu@iitg.ac.in</a>
+    &copy; 2026 NG Lab &nbsp;·&nbsp; Dept. of CSE, IIT Guwahati &nbsp;·&nbsp;
+    &copy; 2026 NG Lab &nbsp;·&nbsp; HWS - 209 &nbsp;·&nbsp;  CSE Department &nbsp;·&nbsp;  IIT Guwahati &nbsp;·&nbsp; 
   </footer>
 
 </body>

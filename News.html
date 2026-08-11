@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>News — NG Lab, IIT Guwahati</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css">
+  <style>
+    :root {
+      --navy: #0f1f3d; --teal: #1d4ed8; --teal-light: #2f7de0; --sand: #f5f2ec;
+      --warm-white: #fdfcfa; --text-dark: #1a1a2e; --text-mid: #4a5568; --text-light: #718096;
+      --border: #e2ddd6; --nav-h: 60px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Manrope', sans-serif; background: radial-gradient(ellipse 1200px 700px at 15% -10%, #e6f0fd 0%, var(--warm-white) 45%), radial-gradient(ellipse 900px 600px at 100% 0%, #eef2fb 0%, var(--warm-white) 40%), var(--warm-white); color: var(--text-dark); line-height: 1.65; min-height: 100vh; }
+    .top-bar {
+      background: linear-gradient(120deg, var(--navy) 0%, #143a52 100%);
+      color: rgba(255,255,255,0.85);
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      padding: 0.4rem 2.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .top-bar-logo {
+      height: 22px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    header {
+      background: linear-gradient(100deg, #ffffff 0%, #eef4fc 55%, #eef2fb 100%);
+      border-bottom: 2px solid var(--border);
+      padding: 1rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+    }
+    .wordmark {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+    }
+    .wordmark .inst-name {
+      font-family: 'Sora', sans-serif;
+      font-weight: 800;
+      line-height: 1.1;
+    }
+    .wordmark .inst-name .iit {
+      font-size: 1.9rem;
+      background: linear-gradient(100deg, var(--navy) 0%, #2e6da8 60%, var(--teal-light) 100%);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+      display: block;
+    }
+    .wordmark .inst-name .guwahati {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      background: linear-gradient(100deg, var(--teal) 0%, #38bdf8 100%);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+      display: block;
+    }
+    .wordmark .divider-line {
+      width: 2px;
+      height: 42px;
+      background: linear-gradient(180deg, var(--navy) 0%, var(--teal-light) 100%);
+      border-radius: 2px;
+    }
+    .wordmark .lab-name-plain {
+      font-family: 'Sora', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      background: linear-gradient(100deg, var(--navy) 0%, var(--teal) 100%);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+
+    nav {
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.2rem;
+    }
+    .nav-links { display: flex; gap: 0.2rem; }
+    .nav-links a {
+      display: inline-block;
+      color: var(--navy);
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      padding: 0.5rem 0.9rem;
+      border-radius: 6px;
+      border-bottom: 3px solid transparent;
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
+    }
+    .nav-links a:hover { color: var(--teal); background: rgba(29,78,216,0.08); }
+    .nav-links a.active {
+      color: var(--teal);
+      background: rgba(29,78,216,0.1);
+      border-bottom-color: var(--teal-light);
+    }
+
+    main { width: 100%; max-width: 1100px; margin: 0 auto; padding: 3rem 2.5rem 4rem; }
+    .page-title { font-family: 'Sora', sans-serif; font-weight: 700; font-size: 2.1rem; margin-bottom: 0.3rem; background: linear-gradient(100deg, var(--navy) 0%, var(--teal) 100%); -webkit-background-clip: text; background-clip: text; color: transparent; display: inline-block; }
+    .page-sub { font-size: 0.9rem; color: var(--text-light); font-style: italic; margin-bottom: 1.2rem; }
+    .divider { width: 40px; height: 3px; background: var(--teal); border-radius: 2px; margin-bottom: 1.5rem; }
+    .news-list { display: flex; flex-direction: column; gap: 0.55rem; }
+    .news-item {
+      display: grid; grid-template-columns: 110px 1fr; gap: 1rem; align-items: start;
+      padding: 0.75rem 1rem; background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      transition: box-shadow 0.2s, border-color 0.2s;
+    }
+    .news-item:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); border-color: var(--teal-light); }
+    .news-date {
+      font-size: 0.75rem; font-weight: 600; color: var(--teal); padding-top: 0.1rem;
+      text-transform: uppercase; letter-spacing: 0.04em; line-height: 1.4;
+    }
+    .news-body { font-size: 0.875rem; color: var(--text-mid); line-height: 1.6; }
+    .news-body strong { color: var(--text-dark); }
+    .news-badge {
+      display: inline-block; background: #e6f0fd; color: var(--teal); font-size: 0.7rem; font-weight: 700;
+      padding: 0.1rem 0.5rem; border-radius: 4px; margin-right: 0.4rem; letter-spacing: 0.03em; vertical-align: middle;
+    }
+    footer { text-align: center; padding: 1rem; font-size: 0.78rem; color: var(--text-light); border-top: 1px solid var(--border); margin-top: 1.5rem; }
+    @media (max-width: 680px) {
+      nav { padding: 0 1rem; } .nav-links a { padding: 0.35rem 0.5rem; font-size: 0.78rem; }
+      .news-item { grid-template-columns: 90px 1fr; gap: 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <img class="top-bar-logo" src="IIT_Guwahati_Logo.svg.webp" alt="IIT Guwahati" onerror="this.style.display='none'">
+    Indian Institute of Technology Guwahati
+  </div>
+
+  <header>
+    <div class="wordmark">
+      <div class="inst-name">
+        <span class="iit">IIT</span>
+        <span class="guwahati">GUWAHATI</span>
+      </div>
+      <div class="divider-line"></div>
+      <div class="lab-name-plain">Next Generation Lab</div>
+    </div>
+    <nav>
+      <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="research.html">Research</a>
+      <a href="publications.html">Publications</a>
+      <a href="people.html">People</a>
+      <a href="news.html" class="active">News</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <h1 class="page-title">News &amp; Activities</h1>
+    <p class="page-sub">Awards, talks, service, and lab updates.</p>
+    <div class="divider"></div>
+
+    <div class="news-list">
+      <div class="news-item">
+        <div class="news-date">Jul<br>2026</div>
+        <div class="news-body">
+          <span class="news-badge">AWARD</span>
+          <strong>Meenu Rani Dey received the Best Ph.D. Thesis Award (Gold Medal)</strong> at the 28th Convocation of IIT Guwahati.
+        </div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">Jul<br>2026</div>
+        <div class="news-body">
+          <span class="news-badge">TPC MEMBER</span>
+          <strong>Serving as a Technical Program Committee Member for the SecDLT 2027 Workshop</strong>, co-located with ICDCN 2027, at NITK Surathkal, India.
+        </div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">Jun<br>2026</div>
+        <div class="news-body">
+          <span class="news-badge">ORGANIZER</span>
+          <strong>Serving as an Organizer for the ZTK-CPS Workshop</strong> at IEEE ANTS 2026.
+        </div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">Jul<br>2026</div>
+        <div class="news-body">
+          <span class="news-badge">REVIEWER</span>
+          <strong>Serving as a Reviewer for IEEE Transactions on Network Science and Engineering</strong>, Network Intelligence Track.
+        </div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">Jun 30<br>2026</div>
+        <div class="news-body">
+          <span class="news-badge">TPC MEMBER</span>
+          <strong>Serving as a TPC Member for IEEE ANTS 2026</strong>, to be held at IIT Roorkee, India.
+        </div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">Jun 29<br>2026</div>
+        <div class="news-body">
+          <span class="news-badge">PUBLICATION</span>
+          Paper titled <strong>FLARE: Federated LLM-Agent Reasoning Engine for Adversarial Attack Detection in 6G Networks</strong> accepted in IEEE TENCON.
+        </div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">Jun 29<br>2026</div>
+        <div class="news-body">
+          <span class="news-badge">PUBLICATION</span>
+          Paper titled <strong>ProGuard-5G: A Provenance Graph-Augmented Deep Learning Framework for Attack Detection in 5G Core Networks</strong> accepted in IEEE TENCON.
+        </div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">Dec 20<br>2025</div>
+        <div class="news-body">
+          <span class="news-badge">PUBLICATION</span>
+          Paper titled <strong>BUFD-Q: Boltzmann-Guided Q-Learning for Optimized 3D UAV Deployment in Flood-Affected Wireless Networks</strong> accepted in IEEE COMSNETS.
+        </div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">Nov 6<br>2025</div>
+        <div class="news-body">
+          <span class="news-badge">PHD DEFENCE</span>
+          Meenu Rani Dey presented her <strong>PhD Defence Seminar</strong> at IIT Guwahati, India.
+        </div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">Jul 28<br>2025</div>
+        <div class="news-body">
+          <span class="news-badge">JOINING</span>
+          Meenu Rani Dey joined as <strong>Assistant Professor</strong> at the Dept. of CSE, IIIT Bhubaneswar.
+        </div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">Jun 5<br>2025</div>
+        <div class="news-body">
+          <span class="news-badge">SEMINAR</span>
+          Meenu Rani Dey presented her <strong>Ph.D. Synopsis Seminar</strong> at IIT Guwahati, India.
+        </div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">May 15<br>2025</div>
+        <div class="news-body">
+          <span class="news-badge">PUBLICATION</span>
+          Paper titled <strong>A Secure Handover in 5G-V2X: Detecting and Localizing DoS Attack to Ensure Reliable Communication</strong> published in IEEE Transactions on Intelligent Transportation Systems.
+        </div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">May 9<br>2025</div>
+        <div class="news-body">
+          <span class="news-badge">PATENT</span>
+          Indian patent titled <strong>A System for Edge-Aware Machine Learning Framework for Context-Switching in Multi-Modal IoT Environments</strong> published.
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2026 NG Lab &nbsp;·&nbsp; Dept. of CSE, IIT Guwahati &nbsp;·&nbsp;
+    &copy; 2026 NG Lab &nbsp;·&nbsp; HWS - 209 &nbsp;·&nbsp;  CSE Department &nbsp;·&nbsp;  IIT Guwahati &nbsp;·&nbsp; 
+  </footer>
+
+</body>
+</html>
