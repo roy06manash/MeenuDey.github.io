@@ -2,19 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+<link rel="icon" type="image/jpeg" href="ngs-logo.jpeg">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Research — NG Lab, IIT Guwahati</title>
+  <title>Research — NGS Lab, IIT Guwahati</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css">
   <style>
     :root {
       --navy: #0f1f3d; --teal: #1d4ed8; --teal-light: #2f7de0; --sand: #f5f2ec;
-      --warm-white: #fdfcfa; --text-dark: #1a1a2e; --text-mid: #4a5568; --text-light: #718096;
+      --warm-white: #fdfcfa; --text-dark: #1a1a2e; --text-mid: #3d4a5e; --text-light: #64748b;
       --border: #e2ddd6; --nav-h: 60px;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Manrope', sans-serif; background: radial-gradient(ellipse 1200px 700px at 15% -10%, #e6f0fd 0%, var(--warm-white) 45%), radial-gradient(ellipse 900px 600px at 100% 0%, #eef2fb 0%, var(--warm-white) 40%), var(--warm-white); color: var(--text-dark); line-height: 1.65; min-height: 100vh; }
+    body { font-family: 'Manrope', sans-serif; background: radial-gradient(ellipse 1200px 700px at 15% -10%, #e6f0fd 0%, var(--warm-white) 45%), radial-gradient(ellipse 900px 600px at 100% 0%, #eef2fb 0%, var(--warm-white) 40%), radial-gradient(ellipse 1100px 600px at 50% 110%, #dbeafe 0%, var(--warm-white) 50%), var(--warm-white); color: var(--text-dark); line-height: 1.65; min-height: 100vh; }
     .top-bar {
       background: linear-gradient(120deg, var(--navy) 0%, #143a52 100%);
       color: rgba(255,255,255,0.85);
@@ -52,7 +53,7 @@
       gap: 0.9rem;
     }
     .wordmark .inst-name {
-      font-family: 'Sora', sans-serif;
+      font-family: 'Times New Roman', Times, serif;
       font-weight: 800;
       line-height: 1.1;
     }
@@ -77,7 +78,7 @@
       border-radius: 2px;
     }
     .wordmark .lab-name-plain {
-      font-family: 'Sora', sans-serif;
+      font-family: 'Times New Roman', Times, serif;
       font-size: 1.35rem;
       font-weight: 700;
       background: linear-gradient(100deg, var(--navy) 0%, var(--teal) 100%);
@@ -110,11 +111,12 @@
     }
 
     main { width: 100%; max-width: 1100px; margin: 0 auto; padding: 3rem 2.5rem 4rem; }
-    .page-title { font-family: 'Sora', sans-serif; font-weight: 700; font-size: 2.1rem; margin-bottom: 0.3rem; background: linear-gradient(100deg, var(--navy) 0%, var(--teal) 100%); -webkit-background-clip: text; background-clip: text; color: transparent; display: inline-block; }
-    .page-sub { font-size: 0.9rem; color: var(--text-light); font-style: italic; margin-bottom: 1.2rem; }
+    .page-title { font-family: 'Times New Roman', Times, serif; font-weight: 800; font-size: 2.2rem; letter-spacing: -0.01em; margin-bottom: 0.4rem; color: var(--navy); }
+    .page-title-accent { width: 52px; height: 4px; background: var(--teal); border-radius: 2px; margin-bottom: 1rem; }
+    .page-sub { font-size: 1rem; color: var(--text-mid); font-weight: 400; margin-bottom: 1.4rem; max-width: 700px; line-height: 1.6; }
     .divider { width: 40px; height: 3px; background: var(--teal); border-radius: 2px; margin-bottom: 1.5rem; }
     .section-label { display: flex; align-items: center; gap: 0.75rem; margin: 1.8rem 0 0.9rem; }
-    .section-label h2 { font-family: 'Sora', sans-serif; font-size: 1.35rem; color: var(--navy); }
+    .section-label h2 { font-family: 'Times New Roman', Times, serif; font-weight: 700; font-size: 1.4rem; color: var(--navy); letter-spacing: -0.005em; }
     .research-grid {
       display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.9rem;
     }
@@ -138,39 +140,232 @@
     @media (max-width: 680px) {
       nav { padding: 0 1rem; } .nav-links a { padding: 0.35rem 0.5rem; font-size: 0.78rem; }
     }
-  </style>
+  
+  /* Unified header + footer styles */
+  :root {
+    --u-navy: #071b4b;
+    --u-blue: #1d4ed8;
+    --u-cyan: #22d3ee;
+    --u-text-dark: #0b1226;
+    --u-text-mid: #2d3a52;
+    --u-text-light: #475569;
+    --u-border: #dbe3ee;
+    --u-bg-tint: #eef2f9;
+  }
+  body.unified-shell { background: var(--u-bg-tint) !important; }
+  header.u-header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 76px;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2.5rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,.05);
+    z-index: 999;
+    font-family: 'Manrope', sans-serif;
+  }
+  .u-brand { display: flex; align-items: center; gap: 14px; }
+  .u-brand img.u-brand-logo { height: 56px; width: auto; }
+  .u-brand img.u-iitg-logo { height: 50px; width: auto; }
+  .u-brand-divider { width: 1px; height: 44px; background: var(--u-border); }
+  .u-brand-text h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--u-navy);
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+  .u-brand-text h2 span {
+    background: linear-gradient(100deg, var(--u-blue) 0%, var(--u-cyan) 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    font-weight: 700;
+  }
+  .u-brand-text small {
+    display: block;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    color: var(--u-text-light);
+    font-weight: 600;
+    margin-top: 0.2rem;
+    text-transform: uppercase;
+  }
+  header.u-header nav.u-nav { display: flex; gap: 1.6rem; align-items: center; }
+  header.u-header nav.u-nav a {
+    font-weight: 600;
+    color: var(--u-text-mid);
+    text-decoration: none;
+    font-size: 0.92rem;
+    position: relative;
+    transition: color 0.2s;
+    padding: 0;
+    border: none;
+    background: none;
+  }
+  header.u-header nav.u-nav a:hover { color: var(--u-blue); background: none; }
+  header.u-header nav.u-nav a.active { color: var(--u-blue); background: none; }
+  header.u-header nav.u-nav a.active::after {
+    content: '';
+    position: absolute; left: 0; right: 0; bottom: -8px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--u-blue), var(--u-cyan));
+    border-radius: 2px;
+  }
+  body.unified-shell > *:not(header.u-header):not(footer.u-footer):not(nav) { }
+  body.unified-shell { padding-top: 76px; }
+
+  footer.u-footer {
+    background: #fff;
+    border-top: 1px solid var(--u-border);
+    color: var(--u-text-mid);
+    padding: 3.5rem 2.5rem 1.5rem;
+    font-family: 'Manrope', sans-serif;
+    margin-top: 3rem;
+  }
+  .u-footer-grid {
+    max-width: 1180px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--u-border);
+  }
+  .u-footer-sub {
+    font-size: 1rem; color: var(--u-text-dark);
+    line-height: 1.75; font-weight: 500; max-width: 340px;
+  }
+  .u-footer-sub strong { color: var(--u-navy); font-weight: 700; }
+  .u-footer-col h4 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 0.85rem; font-weight: 700; letter-spacing: 0.12em;
+    color: var(--u-blue); text-transform: uppercase; margin: 0 0 1rem;
+  }
+  .u-footer-col p, .u-footer-col a {
+    display: block; font-size: 0.9rem; color: var(--u-text-dark);
+    text-decoration: none; margin-bottom: 0.6rem; font-weight: 500;
+  }
+  .u-footer-col a:hover { color: var(--u-blue); }
+  .u-footer-col i { color: var(--u-blue); margin-right: 0.3rem; }
+  .u-footer-bottom {
+    text-align: center; font-size: 0.82rem;
+    color: var(--u-text-light); padding-top: 1.5rem;
+  }
+  @media (max-width: 900px) {
+    .u-footer-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 640px) {
+    header.u-header { padding: 0 1rem; }
+    header.u-header nav.u-nav { gap: 0.9rem; }
+    header.u-header nav.u-nav a { font-size: 0.78rem; }
+    .u-brand-text h2 { font-size: 1.35rem; }
+    .u-brand img.u-brand-logo { height: 44px; }
+    .u-brand img.u-iitg-logo { height: 40px; }
+  }
+
+
+    /* ── CENTERED FOOTER ── */
+    footer.u-footer {
+      background: #fff;
+      border-top: 1px solid var(--border);
+      color: var(--text-mid);
+      padding: 4rem 2.5rem 1.5rem;
+      margin-top: 3rem;
+    }
+    .footer-brand-block {
+      max-width: 700px;
+      margin: 0 auto 3rem;
+      text-align: center;
+    }
+    .footer-logo-wrap {
+      display: inline-block;
+      margin-bottom: 1.4rem;
+      position: relative;
+    }
+    .footer-logo-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -14px;
+      background: radial-gradient(circle, rgba(59,130,246,0.15), transparent 65%);
+      border-radius: 50%;
+      z-index: -1;
+    }
+    .footer-logo-wrap img {
+      max-width: 180px;
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 14px;
+      box-shadow: 0 8px 26px rgba(29,78,216,0.15);
+    }
+    .footer-tagline {
+      font-family: 'Times New Roman', Times, serif;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: var(--navy);
+      line-height: 1.6;
+      max-width: 560px;
+      margin: 0 auto 0.8rem;
+    }
+    .footer-tagline-sub {
+      font-size: 0.9rem;
+      color: var(--text-mid);
+      font-weight: 500;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+    .u-footer-grid {
+      max-width: 1100px !important; margin: 0 auto;
+      display: grid !important; grid-template-columns: 1fr 1fr !important;
+      gap: 3rem !important; padding-bottom: 2.5rem !important;
+      border-bottom: 1px solid var(--border) !important;
+    }
+    .u-footer-col { text-align: center !important; }
+    .u-footer-col h4 {
+      display: inline-flex !important; align-items: center; gap: 0.6rem;
+    }
+    .u-footer-col h4::before, .u-footer-col h4::after {
+      content: '';
+      width: 24px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--blue), transparent);
+    }
+
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="unified-shell">
 
-  <div class="top-bar">
-    <img class="top-bar-logo" src="IIT_Guwahati_Logo.svg.webp" alt="IIT Guwahati" onerror="this.style.display='none'">
-    Indian Institute of Technology Guwahati
-  </div>
-
-  <header>
-    <div class="wordmark">
-      <div class="inst-name">
-        <span class="iit">IIT</span>
-        <span class="guwahati">GUWAHATI</span>
-      </div>
-      <div class="divider-line"></div>
-      <div class="lab-name-plain">Next Generation Lab</div>
+  <header class="u-header">
+  <div class="u-brand">
+    <img class="u-brand-logo" src="ngs-logo.jpeg" alt="NGS Lab" onerror="this.style.display='none'">
+    <div class="u-brand-divider"></div>
+    <div class="u-brand-text">
+      <h2><span>NGS</span> Lab</h2>
+      <small>Next Generation Systems Lab</small>
     </div>
-    <nav>
-      <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="research.html" class="active">Research</a>
-      <a href="publications.html">Publications</a>
-      <a href="people.html">People</a>
-      <a href="news.html">News</a>
-      </div>
+    <div class="u-brand-divider"></div>
+    <a href="https://www.iitg.ac.in/" target="_blank" rel="noopener" title="IIT Guwahati"><img class="u-iitg-logo" src="IIT_Guwahati_Logo.svg.webp" alt="IIT Guwahati" onerror="this.style.display='none'"></a>
+  </div>
+  <nav class="u-nav">
+    <a href="index.html">Home</a>
+    <a class="active" href="research.html">Research</a>
+    <a href="publications.html">Publications</a>
+    <a href="people.html">People</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="news.html">News</a>
     </nav>
-  </header>
+</header>
 
   <main>
     <h1 class="page-title">Research</h1>
+    <div class="page-title-accent"></div>
     <p class="page-sub">Wireless networks, Internet of Vehicles, IoT, 5G-based communication, and network performance analysis.</p>
-    <div class="divider"></div>
 
     <div class="section-label"><h2>Research Areas</h2></div>
     <div class="research-grid">
@@ -221,14 +416,42 @@
       <div class="project-item">
         <span class="status">COMPLETED</span>
         <div class="title">Cooperative Spectrum Sensing and Channel Allocation for Cognitive Radio Assisted Internet of Vehicles</div>
-        <div class="meta">Sponsored by SuG Scheme, R&amp;D Section, IIT Guwahati &middot; Feb 2019 – Feb 2021</div>
+        <div class="meta">Sponsored by SuG Scheme, R&amp;D Section, <a href="https://www.iitg.ac.in/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px dotted currentColor;">IIT Guwahati</a> &middot; Feb 2019 – Feb 2021</div>
       </div>
     </div>
   </main>
 
-  <footer>
-    &copy; 2026 NG Lab &nbsp;·&nbsp; Dept. of CSE, IIT Guwahati &nbsp;·&nbsp;
-    &copy; 2026 NG Lab &nbsp;·&nbsp; HWS - 209 &nbsp;·&nbsp;  CSE Department &nbsp;·&nbsp;  IIT Guwahati &nbsp;·&nbsp; 
+  <footer class="u-footer">
+    <div class="footer-brand-block">
+      <div class="footer-logo-wrap">
+        <img src="ngs-logo.jpeg" alt="NGS Lab logo">
+      </div>
+      <p class="footer-tagline">Next Generation Systems Lab</p>
+      <p class="footer-tagline-sub">Designing secure, resilient, and resource-efficient systems for next-generation wireless networks.</p>
+    </div>
+
+    <div class="u-footer-grid">
+      <div class="u-footer-col">
+        <h4>Contact</h4>
+        <p style="color: var(--navy); font-weight: 700;">
+          <a href="https://patramoumita88.wixsite.com/moumita" target="_blank" rel="noopener" style="color: var(--navy);">Dr. Moumita Patra</a>
+        </p>
+        <p>Associate Professor</p>
+        <a href="tel:+913612582365"><i class="fas fa-phone"></i> +91 361 258 2365</a>
+        <a href="mailto:moumita.patra@iitg.ac.in"><i class="fas fa-envelope"></i> moumita.patra@iitg.ac.in</a>
+        <p><i class="fas fa-map-marker-alt"></i> Dept. of CSE, <a href="https://www.iitg.ac.in/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px dotted currentColor;">IIT Guwahati</a>, Assam – 781039</p>
+      </div>
+      <div class="u-footer-col">
+        <h4>Quick Links</h4>
+        <a href="index.html">Home</a>
+        <a href="research.html">Research</a>
+        <a href="publications.html">Publications</a>
+        <a href="people.html">People</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="news.html">News</a>
+      </div>
+    </div>
+    <div class="u-footer-bottom">&copy; 2026 NGS Lab, <a href="https://www.iitg.ac.in/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px dotted currentColor;">IIT Guwahati</a> · All rights reserved. &nbsp;·&nbsp; Last updated: September 2026</div>
   </footer>
 
 </body>

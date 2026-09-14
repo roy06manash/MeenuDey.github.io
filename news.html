@@ -2,271 +2,497 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <link rel="icon" type="image/jpeg" href="ngs-logo.jpeg">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>News — NG Lab, IIT Guwahati</title>
+  <title>News — NGS Lab, IIT Guwahati</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css">
   <style>
     :root {
-      --navy: #0f1f3d; --teal: #1d4ed8; --teal-light: #2f7de0; --sand: #f5f2ec;
-      --warm-white: #fdfcfa; --text-dark: #1a1a2e; --text-mid: #4a5568; --text-light: #718096;
-      --border: #e2ddd6; --nav-h: 60px;
+      --navy: #071b4b;
+      --blue: #1d4ed8;
+      --blue-bright: #3b82f6;
+      --cyan: #22d3ee;
+      --text-dark: #0b1226;
+      --text-mid: #2d3a52;
+      --text-light: #475569;
+      --border: #dbe3ee;
+      --bg-tint: #eef2f9;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Manrope', sans-serif; background: radial-gradient(ellipse 1200px 700px at 15% -10%, #e6f0fd 0%, var(--warm-white) 45%), radial-gradient(ellipse 900px 600px at 100% 0%, #eef2fb 0%, var(--warm-white) 40%), var(--warm-white); color: var(--text-dark); line-height: 1.65; min-height: 100vh; }
-    .top-bar {
-      background: linear-gradient(120deg, var(--navy) 0%, #143a52 100%);
-      color: rgba(255,255,255,0.85);
-      font-size: 0.78rem;
-      font-weight: 500;
-      letter-spacing: 0.03em;
-      padding: 0.4rem 2.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-    .top-bar-logo {
-      height: 22px;
-      width: auto;
-      object-fit: contain;
+    body {
+      font-family: 'Manrope', sans-serif;
+      background: var(--bg-tint);
+      color: var(--text-dark);
+      line-height: 1.7;
+      padding-top: 76px;
+      min-height: 100vh;
     }
 
-    header {
-      background: linear-gradient(100deg, #ffffff 0%, #eef4fc 55%, #eef2fb 100%);
-      border-bottom: 2px solid var(--border);
-      padding: 1rem 2.5rem;
+    /* ── UNIFIED HEADER ── */
+    header.u-header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 76px;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 1rem;
-      flex-wrap: wrap;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.04);
-    }
-    .wordmark {
-      display: flex;
       align-items: center;
-      gap: 0.9rem;
+      padding: 0 2.5rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,.05);
+      z-index: 999;
     }
-    .wordmark .inst-name {
-      font-family: 'Sora', sans-serif;
-      font-weight: 800;
-      line-height: 1.1;
+    .u-brand { display: flex; align-items: center; gap: 14px; }
+    .u-brand img.u-brand-logo { height: 56px; width: auto; }
+    .u-brand img.u-iitg-logo { height: 50px; width: auto; }
+    .u-brand-divider { width: 1px; height: 44px; background: var(--border); }
+    .u-brand-text h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.7rem; font-weight: 700; line-height: 1;
+      color: var(--navy); letter-spacing: -0.01em; margin: 0;
     }
-    .wordmark .inst-name .iit {
-      font-size: 1.9rem;
-      background: linear-gradient(100deg, var(--navy) 0%, #2e6da8 60%, var(--teal-light) 100%);
+    .u-brand-text h2 span {
+      background: linear-gradient(100deg, var(--blue) 0%, var(--cyan) 100%);
       -webkit-background-clip: text; background-clip: text; color: transparent;
-      display: block;
     }
-    .wordmark .inst-name .guwahati {
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      background: linear-gradient(100deg, var(--teal) 0%, #38bdf8 100%);
-      -webkit-background-clip: text; background-clip: text; color: transparent;
-      display: block;
+    .u-brand-text small {
+      display: block; font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.65rem; letter-spacing: 0.18em;
+      color: var(--text-light); font-weight: 600;
+      margin-top: 0.2rem; text-transform: uppercase;
     }
-    .wordmark .divider-line {
-      width: 2px;
-      height: 42px;
-      background: linear-gradient(180deg, var(--navy) 0%, var(--teal-light) 100%);
+    nav.u-nav { display: flex; gap: 1.6rem; align-items: center; }
+    nav.u-nav a {
+      font-weight: 600; color: var(--text-mid); text-decoration: none;
+      font-size: 0.92rem; position: relative; transition: color 0.2s;
+    }
+    nav.u-nav a:hover { color: var(--blue); }
+    nav.u-nav a.active { color: var(--blue); }
+    nav.u-nav a.active::after {
+      content: '';
+      position: absolute; left: 0; right: 0; bottom: -8px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--blue), var(--cyan));
       border-radius: 2px;
     }
-    .wordmark .lab-name-plain {
-      font-family: 'Sora', sans-serif;
-      font-size: 1.35rem;
-      font-weight: 700;
-      background: linear-gradient(100deg, var(--navy) 0%, var(--teal) 100%);
-      -webkit-background-clip: text; background-clip: text; color: transparent;
-    }
 
-    nav {
-      display: flex;
-      justify-content: flex-end;
-      gap: 0.2rem;
-    }
-    .nav-links { display: flex; gap: 0.2rem; }
-    .nav-links a {
-      display: inline-block;
-      color: var(--navy);
-      text-decoration: none;
-      font-size: 0.92rem;
-      font-weight: 700;
-      letter-spacing: 0.01em;
-      padding: 0.5rem 0.9rem;
-      border-radius: 6px;
-      border-bottom: 3px solid transparent;
-      transition: color 0.2s, border-color 0.2s, background 0.2s;
-    }
-    .nav-links a:hover { color: var(--teal); background: rgba(29,78,216,0.08); }
-    .nav-links a.active {
-      color: var(--teal);
-      background: rgba(29,78,216,0.1);
-      border-bottom-color: var(--teal-light);
-    }
-
+    /* ── MAIN ── */
     main { width: 100%; max-width: 1100px; margin: 0 auto; padding: 3rem 2.5rem 4rem; }
-    .page-title { font-family: 'Sora', sans-serif; font-weight: 700; font-size: 2.1rem; margin-bottom: 0.3rem; background: linear-gradient(100deg, var(--navy) 0%, var(--teal) 100%); -webkit-background-clip: text; background-clip: text; color: transparent; display: inline-block; }
-    .page-sub { font-size: 0.9rem; color: var(--text-light); font-style: italic; margin-bottom: 1.2rem; }
-    .divider { width: 40px; height: 3px; background: var(--teal); border-radius: 2px; margin-bottom: 1.5rem; }
-    .news-list { display: flex; flex-direction: column; gap: 0.55rem; }
+    .page-title {
+      font-family: 'Times New Roman', Times, serif;
+      font-weight: 800; font-size: 2.4rem;
+      letter-spacing: -0.01em; margin-bottom: 0.4rem; color: var(--navy);
+    }
+    .page-title-accent {
+      width: 52px; height: 4px;
+      background: linear-gradient(90deg, var(--blue), var(--cyan));
+      border-radius: 2px; margin-bottom: 1rem;
+    }
+    .page-sub {
+      font-size: 1rem; color: var(--text-mid);
+      font-weight: 400; margin-bottom: 2.5rem;
+      max-width: 720px; line-height: 1.6;
+    }
+
+    /* ── NEWS TIMELINE ── */
+    .news-list { display: flex; flex-direction: column; gap: 1.1rem; }
     .news-item {
-      display: grid; grid-template-columns: 110px 1fr; gap: 1rem; align-items: start;
-      padding: 0.75rem 1rem; background: #fff; border: 1px solid var(--border); border-radius: 8px;
-      transition: box-shadow 0.2s, border-color 0.2s;
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 1.4rem;
+      align-items: start;
+      padding: 1.2rem 1.4rem;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--blue-bright);
+      border-radius: 12px;
+      transition: box-shadow 0.25s, border-color 0.25s, transform 0.2s;
+      position: relative;
+      overflow: hidden;
     }
-    .news-item:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); border-color: var(--teal-light); }
+    .news-item::before {
+      content: '';
+      position: absolute; top: 0; left: 0; bottom: 0; width: 3px;
+      background: linear-gradient(180deg, var(--blue), var(--cyan));
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: transform 0.3s ease;
+    }
+    .news-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(29,78,216,0.1);
+      border-color: transparent;
+    }
+    .news-item:hover::before { transform: scaleY(1); }
+
     .news-date {
-      font-size: 0.75rem; font-weight: 600; color: var(--teal); padding-top: 0.1rem;
-      text-transform: uppercase; letter-spacing: 0.04em; line-height: 1.4;
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--blue);
+      text-align: center;
+      padding: 0.5rem 0.6rem;
+      background: rgba(29,78,216,0.08);
+      border-radius: 8px;
+      line-height: 1.3;
+      align-self: start;
     }
-    .news-body { font-size: 0.875rem; color: var(--text-mid); line-height: 1.6; }
-    .news-body strong { color: var(--text-dark); }
+    .news-date .day {
+      display: block;
+      font-size: 1.4rem;
+      color: var(--navy);
+      font-weight: 800;
+      margin-bottom: 0.2rem;
+    }
+    .news-date .month-year {
+      display: block;
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--blue);
+    }
+
+    .news-body {
+      font-size: 0.95rem;
+      color: var(--text-dark);
+      line-height: 1.75;
+      text-align: justify;
+      text-justify: inter-word;
+      hyphens: auto;
+    }
+    .news-body strong { color: var(--navy); font-weight: 700; }
+    .news-body em { color: var(--text-mid); font-style: normal; font-weight: 600; }
     .news-badge {
-      display: inline-block; background: #e6f0fd; color: var(--teal); font-size: 0.7rem; font-weight: 700;
-      padding: 0.1rem 0.5rem; border-radius: 4px; margin-right: 0.4rem; letter-spacing: 0.03em; vertical-align: middle;
+      display: inline-block;
+      background: linear-gradient(100deg, var(--blue), var(--blue-bright));
+      color: #fff;
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      margin-right: 0.5rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      vertical-align: middle;
     }
-    footer { text-align: center; padding: 1rem; font-size: 0.78rem; color: var(--text-light); border-top: 1px solid var(--border); margin-top: 1.5rem; }
-    @media (max-width: 680px) {
-      nav { padding: 0 1rem; } .nav-links a { padding: 0.35rem 0.5rem; font-size: 0.78rem; }
-      .news-item { grid-template-columns: 90px 1fr; gap: 0.75rem; }
+    .news-badge.publication { background: linear-gradient(100deg, #7c3aed, #a78bfa); }
+    .news-badge.award       { background: linear-gradient(100deg, #eab308, #f59e0b); color: #4a2f00; }
+    .news-badge.tpc         { background: linear-gradient(100deg, #0891b2, var(--cyan)); }
+    .news-badge.organizer   { background: linear-gradient(100deg, #14b8a6, #22d3ee); }
+    .news-badge.reviewer    { background: linear-gradient(100deg, #6366f1, #818cf8); }
+    .news-badge.joining     { background: linear-gradient(100deg, #059669, #10b981); }
+    .news-badge.defence     { background: linear-gradient(100deg, #dc2626, #f87171); }
+    .news-badge.seminar     { background: linear-gradient(100deg, #0284c7, #38bdf8); }
+    .news-badge.patent      { background: linear-gradient(100deg, #b45309, #d97706); }
+
+    /* ── FOOTER (centered, prominent logo) ── */
+    footer.u-footer {
+      background: #fff;
+      border-top: 1px solid var(--border);
+      color: var(--text-mid);
+      padding: 4rem 2.5rem 1.5rem;
+      margin-top: 3rem;
+    }
+    .footer-brand-block {
+      max-width: 700px;
+      margin: 0 auto 3rem;
+      text-align: center;
+    }
+    .footer-logo-wrap {
+      display: inline-block;
+      margin-bottom: 1.4rem;
+      position: relative;
+    }
+    .footer-logo-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -14px;
+      background: radial-gradient(circle, rgba(59,130,246,0.15), transparent 65%);
+      border-radius: 50%;
+      z-index: -1;
+    }
+    .footer-logo-wrap img {
+      max-width: 180px;
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 14px;
+      box-shadow: 0 8px 26px rgba(29,78,216,0.15);
+    }
+    .footer-tagline {
+      font-family: 'Times New Roman', Times, serif;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: var(--navy);
+      line-height: 1.6;
+      max-width: 560px;
+      margin: 0 auto 0.8rem;
+    }
+    .footer-tagline-sub {
+      font-size: 0.9rem;
+      color: var(--text-mid);
+      font-weight: 500;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+    .u-footer-grid {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 3rem; padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .u-footer-col { text-align: center; }
+    .u-footer-col h4 {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 0.85rem; font-weight: 700; letter-spacing: 0.14em;
+      color: var(--blue); text-transform: uppercase; margin: 0 0 1.2rem;
+      display: inline-flex; align-items: center; gap: 0.6rem;
+    }
+    .u-footer-col h4::before, .u-footer-col h4::after {
+      content: '';
+      width: 24px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--blue), transparent);
+    }
+    .u-footer-col p, .u-footer-col a {
+      display: block; font-size: 0.9rem; color: var(--text-dark);
+      text-decoration: none; margin-bottom: 0.6rem; font-weight: 500;
+    }
+    .u-footer-col a:hover { color: var(--blue); }
+    .u-footer-col i { color: var(--blue); margin-right: 0.4rem; }
+    .u-footer-bottom {
+      text-align: center; font-size: 0.82rem;
+      color: var(--text-light); padding-top: 1.8rem;
+    }
+
+    @media (max-width: 700px) {
+      .u-footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .news-item { grid-template-columns: 100px 1fr; gap: 0.9rem; padding: 1rem; }
+      .news-date .day { font-size: 1.2rem; }
+      .news-body { text-align: left; }
+    }
+    @media (max-width: 640px) {
+      header.u-header { padding: 0 1rem; }
+      nav.u-nav { gap: 0.9rem; }
+      nav.u-nav a { font-size: 0.78rem; }
+      .u-brand-text h2 { font-size: 1.35rem; }
+      .u-brand img.u-brand-logo { height: 44px; }
+      .u-brand img.u-iitg-logo { height: 40px; }
+      main { padding: 2rem 1rem 3rem; }
+      .page-title { font-size: 1.8rem; }
     }
   </style>
 </head>
 <body>
 
-  <div class="top-bar">
-    <img class="top-bar-logo" src="IIT_Guwahati_Logo.svg.webp" alt="IIT Guwahati" onerror="this.style.display='none'">
-    Indian Institute of Technology Guwahati
-  </div>
-
-  <header>
-    <div class="wordmark">
-      <div class="inst-name">
-        <span class="iit">IIT</span>
-        <span class="guwahati">GUWAHATI</span>
+  <header class="u-header">
+    <div class="u-brand">
+      <img class="u-brand-logo" src="ngs-logo.jpeg" alt="NGS Lab" onerror="this.style.display='none'">
+      <div class="u-brand-divider"></div>
+      <div class="u-brand-text">
+        <h2><span>NGS</span> Lab</h2>
+        <small>Next Generation Systems Lab</small>
       </div>
-      <div class="divider-line"></div>
-      <div class="lab-name-plain">Next Generation Lab</div>
+      <div class="u-brand-divider"></div>
+      <a href="https://www.iitg.ac.in/" target="_blank" rel="noopener" title="IIT Guwahati"><img class="u-iitg-logo" src="IIT_Guwahati_Logo.svg.webp" alt="IIT Guwahati" onerror="this.style.display='none'"></a>
     </div>
-    <nav>
-      <div class="nav-links">
+    <nav class="u-nav">
       <a href="index.html">Home</a>
       <a href="research.html">Research</a>
       <a href="publications.html">Publications</a>
       <a href="people.html">People</a>
-      <a href="news.html" class="active">News</a>
-      </div>
+      <a href="gallery.html">Gallery</a>
+      <a class="active" href="news.html">News</a>
     </nav>
   </header>
 
   <main>
     <h1 class="page-title">News &amp; Activities</h1>
-    <p class="page-sub">Awards, talks, service, and lab updates.</p>
-    <div class="divider"></div>
+    <div class="page-title-accent"></div>
+    <p class="page-sub">Awards, talks, service, publications, and lab updates from NGS Lab, <a href="https://www.iitg.ac.in/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px dotted currentColor;">IIT Guwahati</a>.</p>
 
     <div class="news-list">
+
       <div class="news-item">
-        <div class="news-date">Jul<br>2026</div>
+        <div class="news-date">
+          <span class="day">Jul</span>
+          <span class="month-year">2026</span>
+        </div>
         <div class="news-body">
-          <span class="news-badge">AWARD</span>
-          <strong>Meenu Rani Dey received the Best Ph.D. Thesis Award (Gold Medal)</strong> at the 28th Convocation of IIT Guwahati.
+          <span class="news-badge award">Award</span>
+          <strong>Meenu Rani Dey received the Best Ph.D. Thesis Award (Gold Medal)</strong> at the 28th Convocation of <a href="https://www.iitg.ac.in/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px dotted currentColor;">IIT Guwahati</a>.
         </div>
       </div>
+
       <div class="news-item">
-        <div class="news-date">Jul<br>2026</div>
+        <div class="news-date">
+          <span class="day">Jul</span>
+          <span class="month-year">2026</span>
+        </div>
         <div class="news-body">
-          <span class="news-badge">TPC MEMBER</span>
+          <span class="news-badge tpc">TPC Member</span>
           <strong>Serving as a Technical Program Committee Member for the SecDLT 2027 Workshop</strong>, co-located with ICDCN 2027, at NITK Surathkal, India.
         </div>
       </div>
+
       <div class="news-item">
-        <div class="news-date">Jun<br>2026</div>
+        <div class="news-date">
+          <span class="day">Jun</span>
+          <span class="month-year">2026</span>
+        </div>
         <div class="news-body">
-          <span class="news-badge">ORGANIZER</span>
+          <span class="news-badge organizer">Organizer</span>
           <strong>Serving as an Organizer for the ZTK-CPS Workshop</strong> at IEEE ANTS 2026.
         </div>
       </div>
+
       <div class="news-item">
-        <div class="news-date">Jul<br>2026</div>
+        <div class="news-date">
+          <span class="day">Jul</span>
+          <span class="month-year">2026</span>
+        </div>
         <div class="news-body">
-          <span class="news-badge">REVIEWER</span>
+          <span class="news-badge reviewer">Reviewer</span>
           <strong>Serving as a Reviewer for IEEE Transactions on Network Science and Engineering</strong>, Network Intelligence Track.
         </div>
       </div>
+
       <div class="news-item">
-        <div class="news-date">Jun 30<br>2026</div>
+        <div class="news-date">
+          <span class="day">30</span>
+          <span class="month-year">Jun 2026</span>
+        </div>
         <div class="news-body">
-          <span class="news-badge">TPC MEMBER</span>
+          <span class="news-badge tpc">TPC Member</span>
           <strong>Serving as a TPC Member for IEEE ANTS 2026</strong>, to be held at IIT Roorkee, India.
         </div>
       </div>
+
       <div class="news-item">
-        <div class="news-date">Jun 29<br>2026</div>
+        <div class="news-date">
+          <span class="day">29</span>
+          <span class="month-year">Jun 2026</span>
+        </div>
         <div class="news-body">
-          <span class="news-badge">PUBLICATION</span>
+          <span class="news-badge publication">Publication</span>
           Paper titled <strong>FLARE: Federated LLM-Agent Reasoning Engine for Adversarial Attack Detection in 6G Networks</strong> accepted in IEEE TENCON.
         </div>
       </div>
+
       <div class="news-item">
-        <div class="news-date">Jun 29<br>2026</div>
+        <div class="news-date">
+          <span class="day">29</span>
+          <span class="month-year">Jun 2026</span>
+        </div>
         <div class="news-body">
-          <span class="news-badge">PUBLICATION</span>
+          <span class="news-badge publication">Publication</span>
           Paper titled <strong>ProGuard-5G: A Provenance Graph-Augmented Deep Learning Framework for Attack Detection in 5G Core Networks</strong> accepted in IEEE TENCON.
         </div>
       </div>
+
       <div class="news-item">
-        <div class="news-date">Dec 20<br>2025</div>
+        <div class="news-date">
+          <span class="day">20</span>
+          <span class="month-year">Dec 2025</span>
+        </div>
         <div class="news-body">
-          <span class="news-badge">PUBLICATION</span>
+          <span class="news-badge publication">Publication</span>
           Paper titled <strong>BUFD-Q: Boltzmann-Guided Q-Learning for Optimized 3D UAV Deployment in Flood-Affected Wireless Networks</strong> accepted in IEEE COMSNETS.
         </div>
       </div>
+
       <div class="news-item">
-        <div class="news-date">Nov 6<br>2025</div>
+        <div class="news-date">
+          <span class="day">6</span>
+          <span class="month-year">Nov 2025</span>
+        </div>
         <div class="news-body">
-          <span class="news-badge">PHD DEFENCE</span>
-          Meenu Rani Dey presented her <strong>PhD Defence Seminar</strong> at IIT Guwahati, India.
+          <span class="news-badge defence">PhD Defence</span>
+          Meenu Rani Dey presented her <strong>PhD Defence Seminar</strong> at <a href="https://www.iitg.ac.in/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px dotted currentColor;">IIT Guwahati</a>, India.
         </div>
       </div>
+
       <div class="news-item">
-        <div class="news-date">Jul 28<br>2025</div>
+        <div class="news-date">
+          <span class="day">28</span>
+          <span class="month-year">Jul 2025</span>
+        </div>
         <div class="news-body">
-          <span class="news-badge">JOINING</span>
+          <span class="news-badge joining">Joining</span>
           Meenu Rani Dey joined as <strong>Assistant Professor</strong> at the Dept. of CSE, IIIT Bhubaneswar.
         </div>
       </div>
+
       <div class="news-item">
-        <div class="news-date">Jun 5<br>2025</div>
+        <div class="news-date">
+          <span class="day">5</span>
+          <span class="month-year">Jun 2025</span>
+        </div>
         <div class="news-body">
-          <span class="news-badge">SEMINAR</span>
-          Meenu Rani Dey presented her <strong>Ph.D. Synopsis Seminar</strong> at IIT Guwahati, India.
+          <span class="news-badge seminar">Seminar</span>
+          Meenu Rani Dey presented her <strong>Ph.D. Synopsis Seminar</strong> at <a href="https://www.iitg.ac.in/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px dotted currentColor;">IIT Guwahati</a>, India.
         </div>
       </div>
+
       <div class="news-item">
-        <div class="news-date">May 15<br>2025</div>
+        <div class="news-date">
+          <span class="day">15</span>
+          <span class="month-year">May 2025</span>
+        </div>
         <div class="news-body">
-          <span class="news-badge">PUBLICATION</span>
+          <span class="news-badge publication">Publication</span>
           Paper titled <strong>A Secure Handover in 5G-V2X: Detecting and Localizing DoS Attack to Ensure Reliable Communication</strong> published in IEEE Transactions on Intelligent Transportation Systems.
         </div>
       </div>
+
       <div class="news-item">
-        <div class="news-date">May 9<br>2025</div>
+        <div class="news-date">
+          <span class="day">9</span>
+          <span class="month-year">May 2025</span>
+        </div>
         <div class="news-body">
-          <span class="news-badge">PATENT</span>
+          <span class="news-badge patent">Patent</span>
           Indian patent titled <strong>A System for Edge-Aware Machine Learning Framework for Context-Switching in Multi-Modal IoT Environments</strong> published.
         </div>
       </div>
+
     </div>
   </main>
 
-  <footer>
-    &copy; 2026 NG Lab &nbsp;·&nbsp; Dept. of CSE, IIT Guwahati &nbsp;·&nbsp;
-    &copy; 2026 NG Lab &nbsp;·&nbsp; HWS - 209 &nbsp;·&nbsp;  CSE Department &nbsp;·&nbsp;  IIT Guwahati &nbsp;·&nbsp; 
+  <footer class="u-footer">
+    <div class="footer-brand-block">
+      <div class="footer-logo-wrap">
+        <img src="ngs-logo.jpeg" alt="NGS Lab logo">
+      </div>
+      <p class="footer-tagline">Next Generation Systems Lab</p>
+      <p class="footer-tagline-sub">Designing secure, resilient, and resource-efficient systems for next-generation wireless networks.</p>
+    </div>
+
+    <div class="u-footer-grid">
+      <div class="u-footer-col">
+        <h4>Contact</h4>
+        <p style="color: var(--navy); font-weight: 700;">
+          <a href="https://patramoumita88.wixsite.com/moumita" target="_blank" rel="noopener" style="color: var(--navy);">Dr. Moumita Patra</a>
+        </p>
+        <p>Associate Professor</p>
+        <a href="tel:+913612582365"><i class="fas fa-phone"></i> +91 361 258 2365</a>
+        <a href="mailto:moumita.patra@iitg.ac.in"><i class="fas fa-envelope"></i> moumita.patra@iitg.ac.in</a>
+        <p><i class="fas fa-map-marker-alt"></i> Dept. of CSE, <a href="https://www.iitg.ac.in/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px dotted currentColor;">IIT Guwahati</a>, Assam – 781039</p>
+      </div>
+      <div class="u-footer-col">
+        <h4>Quick Links</h4>
+        <a href="index.html">Home</a>
+        <a href="research.html">Research</a>
+        <a href="publications.html">Publications</a>
+        <a href="people.html">People</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="news.html">News</a>
+      </div>
+    </div>
+    <div class="u-footer-bottom">&copy; 2026 NGS Lab, <a href="https://www.iitg.ac.in/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px dotted currentColor;">IIT Guwahati</a> · All rights reserved. &nbsp;·&nbsp; Last updated: September 2026</div>
   </footer>
 
 </body>
