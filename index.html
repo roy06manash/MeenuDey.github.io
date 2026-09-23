@@ -15,7 +15,7 @@
     --blue: #1d4ed8;
     --blue-bright: #3b82f6;
     --cyan: #22d3ee;
-    --bg: #eef2f9;
+    --bg: #c7dbf6;
     --text-dark: #0b1226;
     --text-mid: #2d3a52;
     --text-light: #475569;
@@ -98,7 +98,7 @@
     margin-top: 76px;
     position: relative;
     background: #071b4b url('1000178505.jpg') center top / 100% auto no-repeat;
-    overflow: hidden;
+    overflow: visible;
     aspect-ratio: 16 / 9;
     min-height: 500px;
   }
@@ -264,9 +264,68 @@
   .about p a { color: var(--blue); text-decoration: none; font-weight: 700; }
   .about p a:hover { text-decoration: underline; }
 
+  /* ── ABOUT LAYOUT + SLIDESHOW ── */
+  .about .section-inner {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+  .about-slideshow {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 20px 45px rgba(15,23,42,0.15);
+    background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+  }
+  .about-slideshow .slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out;
+  }
+  .about-slideshow .slide.active { opacity: 1; }
+  .about-slideshow .slide img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .about-slideshow .slide-fallback {
+    width: 100%; height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    color: rgba(255,255,255,0.85);
+    background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+  }
+  .about-slideshow .slide-fallback i { font-size: 2.2rem; opacity: 0.8; }
+  .about-slideshow .slide-fallback span { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
+  .about-slideshow .slide-dots {
+    position: absolute;
+    bottom: 14px; left: 50%;
+    transform: translateX(-50%);
+    display: flex; gap: 8px;
+    z-index: 2;
+  }
+  .about-slideshow .slide-dots span {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.45);
+    transition: background 0.3s;
+  }
+  .about-slideshow .slide-dots span.active { background: #fff; }
+  @media (max-width: 900px) {
+    .about .section-inner { grid-template-columns: 1fr; }
+    .about-slideshow { max-width: 480px; margin: 0 auto; }
+  }
+
   /* ── PI SECTION ── */
   .pi-section {
-    background: linear-gradient(180deg, #eef3fb 0%, #e2eaf6 100%);
+    background: var(--bg);
     position: relative;
     overflow: hidden;
   }
@@ -319,10 +378,55 @@
   .pi-contact a:hover { color: var(--blue); }
   .pi-contact i { color: var(--blue); }
 
+  /* ── FACULTY SECTION ── */
+  .faculty-section { background: var(--bg); }
+  .faculty-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2.5rem;
+  }
+  .faculty-card {
+    background: linear-gradient(180deg, #f7faff 0%, #eaf1fb 100%);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 1.8rem;
+    box-shadow: 0 12px 30px rgba(15,31,61,0.06);
+  }
+  .faculty-photo {
+    width: 100px; height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 1rem;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .faculty-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .faculty-photo i { color: rgba(255,255,255,0.85); font-size: 2rem; }
+  .faculty-card h3 { font-family: 'Times New Roman', Times, serif; font-weight: 800; font-size: 1.3rem; margin-bottom: 0.3rem; color: var(--navy); text-align: center; }
+  .faculty-card h3 a { color: var(--navy); text-decoration: none; transition: color 0.2s; }
+  .faculty-card h3 a:hover { color: var(--blue); text-decoration: underline; }
+  .faculty-card .role { font-size: 0.9rem; font-weight: 700; color: var(--blue); margin-bottom: 0.2rem; text-align: center; }
+  .faculty-card .dept { font-size: 0.85rem; color: var(--text-mid); font-weight: 500; margin-bottom: 1rem; text-align: center; }
+  .faculty-card .fac-bio { font-size: 0.9rem; color: var(--text-dark); line-height: 1.75; margin-bottom: 1rem; font-weight: 400; }
+  .faculty-card .fac-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; }
+  .faculty-card .fac-tag {
+    background: rgba(29,78,216,0.1);
+    color: var(--blue);
+    border: 1px solid rgba(29,78,216,0.25);
+    font-size: 0.74rem; font-weight: 700;
+    padding: 0.28rem 0.7rem;
+    border-radius: 20px;
+  }
+  .faculty-card .fac-contact { display: flex; gap: 1rem; flex-wrap: wrap; font-size: 0.85rem; }
+  .faculty-card .fac-contact a { color: var(--text-dark); text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 600; }
+  .faculty-card .fac-contact a:hover { color: var(--blue); }
+  .faculty-card .fac-contact i { color: var(--blue); }
+
   /* ── JOIN US ── */
   .join-section {
     position: relative;
-    background: #fff;
+    background: var(--bg);
     padding: 4rem 2rem;
     text-align: center;
     overflow: hidden;
@@ -396,6 +500,7 @@
     .pi-card img { max-width: 200px; margin: 0 auto; }
     .pi-card > div { text-align: left; }
     .pi-contact { justify-content: flex-start; }
+    .faculty-grid { grid-template-columns: 1fr; }
     .footer-grid { grid-template-columns: 1fr; }
   }
   @media (max-width: 640px) {
@@ -414,20 +519,19 @@
 
     /* ── CENTERED FOOTER ── */
     footer.u-footer {
-      background: #fff;
+      background: var(--bg);
       border-top: 1px solid var(--border);
       color: var(--text-mid);
       padding: 4rem 2.5rem 1.5rem;
-      margin-top: 3rem;
+      margin-top: 0;
     }
     .footer-brand-block {
-      max-width: 700px;
-      margin: 0 auto 3rem;
+      max-width: 220px;
       text-align: center;
     }
     .footer-logo-wrap {
       display: inline-block;
-      margin-bottom: 1.4rem;
+      margin-bottom: 1rem;
       position: relative;
     }
     .footer-logo-wrap::before {
@@ -439,33 +543,26 @@
       z-index: -1;
     }
     .footer-logo-wrap img {
-      max-width: 180px;
+      max-width: 120px;
       width: 100%;
       height: auto;
       display: block;
+      margin: 0 auto;
       border-radius: 14px;
       box-shadow: 0 8px 26px rgba(29,78,216,0.15);
     }
     .footer-tagline {
       font-family: 'Times New Roman', Times, serif;
       font-style: italic;
-      font-size: 1.1rem;
+      font-size: 0.95rem;
       color: var(--navy);
-      line-height: 1.6;
-      max-width: 560px;
-      margin: 0 auto 0.8rem;
-    }
-    .footer-tagline-sub {
-      font-size: 0.9rem;
-      color: var(--text-mid);
-      font-weight: 500;
-      max-width: 560px;
-      margin: 0 auto;
+      line-height: 1.5;
     }
     .u-footer-grid {
       max-width: 1100px !important; margin: 0 auto;
-      display: grid !important; grid-template-columns: 1fr 1fr !important;
-      gap: 3rem !important; padding-bottom: 2.5rem !important;
+      display: grid !important; grid-template-columns: auto 1fr 1fr !important;
+      gap: 3rem !important; align-items: start !important;
+      padding-bottom: 2.5rem !important;
       border-bottom: 1px solid var(--border) !important;
     }
     .u-footer-col { text-align: center !important; }
@@ -476,6 +573,10 @@
       content: '';
       width: 24px; height: 1px;
       background: linear-gradient(90deg, transparent, var(--blue), transparent);
+    }
+    @media (max-width: 900px) {
+      .u-footer-grid { grid-template-columns: 1fr !important; }
+      .footer-brand-block { max-width: 100%; margin: 0 auto; }
     }
 
 </style>
@@ -521,33 +622,49 @@
 <!-- ABOUT -->
 <section class="section about">
   <div class="section-inner">
-    <div class="eyebrow">About NGS Lab</div>
-    <h2 class="section-heading">Building the Future of Secure Networks</h2>
-    <p>
-      The Next Generation Systems Lab (NGS Lab) at <a href="https://www.iitg.ac.in/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px dotted currentColor;">IIT Guwahati</a> conducts cutting-edge research at
-      the intersection of <strong>5G/B5G/6G communication</strong>, the
-      <strong>Internet of Vehicles</strong>, <strong>UAV networks</strong>, and
-      <strong>network security</strong>. Our work aims to build wireless systems that are
-      fast, reliable, and resilient under real-world deployment constraints.
-    </p>
-    <p>
-      We combine classical networking techniques with modern data-driven approaches to
-      address emerging challenges in next-generation wireless infrastructure — from
-      real-time attack detection in 5G cores to secure V2X handover in vehicular networks.
-    </p>
-    <p>
-      Led by <strong><a href="https://patramoumita88.wixsite.com/moumita" target="_blank" rel="noopener">Dr. Moumita Patra</a></strong>
-      in the Department of CSE at <a href="https://www.iitg.ac.in/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px dotted currentColor;">IIT Guwahati</a>, with association to the School of
-      Interdisciplinary Studies and Sustainability (SiSAS).
-    </p>
+    <div>
+      <div class="eyebrow">About NGS Lab</div>
+      <h2 class="section-heading">Building the Future of Secure Networks</h2>
+      <p>
+        The Next Generation Systems Lab (NGS Lab) at <a href="https://www.iitg.ac.in/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px dotted currentColor;">IIT Guwahati</a> conducts cutting-edge research at
+        the intersection of <strong>5G/B5G/6G communication</strong>, the
+        <strong>Internet of Vehicles</strong>, <strong>UAV networks</strong>, and
+        <strong>network security</strong>. Our work aims to build wireless systems that are
+        fast, reliable, and resilient under real-world deployment constraints.
+      </p>
+      <p>
+        We combine classical networking techniques with modern data-driven approaches to
+        address emerging challenges in next-generation wireless infrastructure — from
+        real-time attack detection in 5G cores to secure V2X handover in vehicular networks.
+      </p>
+      <p>
+        Led by <strong><a href="https://patramoumita88.wixsite.com/moumita" target="_blank" rel="noopener">Dr. Moumita Patra</a></strong>
+        in the Department of CSE at <a href="https://www.iitg.ac.in/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px dotted currentColor;">IIT Guwahati</a>, with association to the School of
+        Interdisciplinary Studies and Sustainability (SiSAS).
+      </p>
+    </div>
+    <div class="about-slideshow" id="aboutSlideshow">
+      <div class="slide active">
+        <img src="30210.jpg" alt="NGS Lab photo 1" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'slide-fallback',innerHTML:'<i class=\'fas fa-images\'></i><span>Add lab-photo-1.jpg</span>'}))">
+      </div>
+      <div class="slide">
+        <img src="P1050757.JPG" alt="NGS Lab photo 2" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'slide-fallback',innerHTML:'<i class=\'fas fa-images\'></i><span>Add lab-photo-2.jpg</span>'}))">
+      </div>
+      <div class="slide">
+        <img src="P1050639.JPG" alt="NGS Lab photo 3" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'slide-fallback',innerHTML:'<i class=\'fas fa-images\'></i><span>Add lab-photo-3.jpg</span>'}))">
+      </div>
+      <div class="slide-dots">
+        <span class="active"></span><span></span><span></span>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- PI SECTION -->
 <section class="section pi-section">
   <div class="section-inner">
-    <div class="eyebrow" style="justify-content:center;">Principal Investigator</div>
-    <h2 class="section-heading" style="text-align:center;">Lab Director</h2>
+     <h2 class="section-heading"> Faculty</h2>
+    
     <div class="pi-card">
       <img src="pi-photo.jpg" alt="Dr. Moumita Patra">
       <div>
@@ -556,7 +673,7 @@
             Dr. Moumita Patra <i class="fas fa-external-link-alt"></i>
           </a>
         </h3>
-        <p class="role">Associate Professor · Head, NGS Lab</p>
+        <p class="role">Associate Professor</p>
         <p class="dept">Department of Computer Science &amp; Engineering, <a href="https://www.iitg.ac.in/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px dotted currentColor;">IIT Guwahati</a></p>
         <p class="pi-bio">
           Dr. Moumita Patra's research spans 5G/B5G/6G communication networks, the Internet of
@@ -581,6 +698,62 @@
   </div>
 </section>
 
+<!-- FACULTY SECTION -->
+<section class="section faculty-section">
+  <div class="section-inner">
+    
+    <h2 class="section-heading">Associated Faculty</h2>
+    <div class="faculty-grid">
+      <div class="faculty-card">
+        <div class="faculty-photo">
+          <img src="venkatesh-photo.jpg" alt="Tamarapalli Venkatesh" onerror="this.replaceWith(Object.assign(document.createElement('i'),{className:'fas fa-user'}))">
+        </div>
+        <h3><a href="https://www.iitg.ac.in/cse/internet-pages/t.venkat" target="_blank" rel="noopener">Tamarapalli Venkatesh</a></h3>
+        <p class="role">Professor</p>
+        <p class="dept">Department of Computer Science &amp; Engineering, IIT Guwahati</p>
+        <p class="fac-bio">
+          Dr. Tamarapalli Venkatesh's research interests include network protocols and
+          architectures, data centers, and multimedia streaming. He is a member of the
+          Computer Systems research group.
+        </p>
+        <div class="fac-tags">
+          <span class="fac-tag">Network Protocols &amp; Architectures</span>
+          <span class="fac-tag">Data Centers</span>
+          <span class="fac-tag">Multimedia Streaming</span>
+        </div>
+        <div class="fac-contact">
+          <a href="tel:+913612582366"><i class="fas fa-phone"></i> +91 361 258 2366</a>
+          <a href="mailto:t.venkat@iitg.ac.in"><i class="fas fa-envelope"></i> t.venkat@iitg.ac.in</a>
+          <a href="https://www.iitg.ac.in/cse/internet-pages/t.venkat" target="_blank" rel="noopener"><i class="fas fa-globe"></i> Personal Website</a>
+        </div>
+      </div>
+      <div class="faculty-card">
+        <div class="faculty-photo">
+          <img src="satyajit-photo.jpg" alt="Satyajit Das" onerror="this.replaceWith(Object.assign(document.createElement('i'),{className:'fas fa-user'}))">
+        </div>
+        <h3><a href="https://www.iitg.ac.in/cse/internet-pages/satyajit.das" target="_blank" rel="noopener">Satyajit Das</a></h3>
+        <p class="role">Assistant Professor</p>
+        <p class="dept">Department of Computer Science &amp; Engineering, IIT Guwahati</p>
+        <p class="fac-bio">
+          Dr. Satyajit Das's research interests include systems for artificial intelligence,
+          computer architecture, low power design, reconfigurable computing, cryptography,
+          high level synthesis, and CGRA (Coarse Grained Reconfigurable Array).
+        </p>
+        <div class="fac-tags">
+          <span class="fac-tag">Systems for AI</span>
+          <span class="fac-tag">Computer Architecture</span>
+          <span class="fac-tag">Reconfigurable Computing</span>
+        </div>
+        <div class="fac-contact">
+          <a href="tel:+913612583271"><i class="fas fa-phone"></i> +91 361 258 3271</a>
+          <a href="mailto:satyajit.das@iitg.ac.in"><i class="fas fa-envelope"></i> satyajit.das@iitg.ac.in</a>
+          <a href="https://www.iitg.ac.in/cse/internet-pages/satyajit.das" target="_blank" rel="noopener"><i class="fas fa-globe"></i> Personal Website</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- JOIN US -->
 <section class="join-section">
   <div class="eyebrow">Join Us</div>
@@ -594,15 +767,13 @@
 
 <!-- FOOTER -->
 <footer class="u-footer">
-    <div class="footer-brand-block">
-      <div class="footer-logo-wrap">
-        <img src="ngs-logo.jpeg" alt="NGS Lab logo">
-      </div>
-      <p class="footer-tagline">Next Generation Systems Lab</p>
-      <p class="footer-tagline-sub">Designing secure, resilient, and resource-efficient systems for next-generation wireless networks.</p>
-    </div>
-
     <div class="u-footer-grid">
+      <div class="footer-brand-block">
+        <div class="footer-logo-wrap">
+          <img src="ngs-logo.jpeg" alt="NGS Lab logo">
+        </div>
+        <p class="footer-tagline">Next Generation Systems Lab</p>
+      </div>
       <div class="u-footer-col">
         <h4>Contact</h4>
         <p style="color: var(--navy); font-weight: 700;">
@@ -625,6 +796,23 @@
     </div>
     <div class="u-footer-bottom">&copy; 2026 NGS Lab, <a href="https://www.iitg.ac.in/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px dotted currentColor;">IIT Guwahati</a> · All rights reserved. &nbsp;·&nbsp; Last updated: September 2026</div>
   </footer>
+
+<script>
+  (function() {
+    var slideshow = document.getElementById('aboutSlideshow');
+    if (!slideshow) return;
+    var slides = slideshow.querySelectorAll('.slide');
+    var dots = slideshow.querySelectorAll('.slide-dots span');
+    var current = 0;
+    setInterval(function() {
+      slides[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+      dots[current].classList.add('active');
+    }, 3500);
+  })();
+</script>
 
 </body>
 </html>
