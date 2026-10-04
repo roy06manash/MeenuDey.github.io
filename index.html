@@ -430,22 +430,30 @@
     padding: 4rem 2rem;
     text-align: center;
     overflow: hidden;
-    border-top: 1px solid var(--border);
   }
-  .join-section::before {
+  .join-block {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3.2rem 2.5rem;
+    border-radius: 24px;
+    background: linear-gradient(120deg, var(--blue) 0%, var(--blue-bright) 50%, var(--cyan) 130%);
+    box-shadow: 0 25px 55px rgba(29,78,216,0.35);
+    overflow: hidden;
+  }
+  .join-block::before {
     content: '';
     position: absolute;
-    top: 50%; left: 50%;
-    width: 700px; height: 700px;
-    background: radial-gradient(circle, rgba(59,130,246,0.08), transparent 55%);
-    transform: translate(-50%, -50%);
+    top: -40%; right: -15%;
+    width: 420px; height: 420px;
+    background: radial-gradient(circle, rgba(255,255,255,0.18), transparent 60%);
     pointer-events: none;
   }
-  .join-section > * { position: relative; z-index: 1; }
-  .join-section .eyebrow { color: var(--blue); justify-content: center; }
-  .join-section .eyebrow::before { background: linear-gradient(90deg, var(--blue), var(--cyan)); }
-  .join-section h2 { font-family: 'Times New Roman', Times, serif; font-weight: 800; font-size: 2rem; color: var(--navy); margin-bottom: 0.8rem; }
-  .join-section .join-sub { color: var(--text-mid); max-width: 560px; margin: 0 auto 2rem; font-size: 1rem; }
+  .join-block > * { position: relative; z-index: 1; }
+  .join-section .eyebrow { color: #bfe0ff; justify-content: center; }
+  .join-section .eyebrow::before { background: linear-gradient(90deg, #bfe0ff, #fff); }
+  .join-section h2 { font-family: 'Times New Roman', Times, serif; font-weight: 800; font-size: 2.1rem; color: #fff; margin-bottom: 0.8rem; }
+  .join-section .join-sub { color: #e3edfc; max-width: 560px; margin: 0 auto 2rem; font-size: 1rem; }
   .hero-buttons { display: flex; gap: 0.8rem; flex-wrap: wrap; justify-content: center; }
   .btn-primary, .btn-secondary {
     display: inline-flex;
@@ -459,13 +467,13 @@
     transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
   }
   .btn-primary {
-    background: linear-gradient(100deg, var(--blue) 0%, var(--cyan) 100%);
-    color: #fff;
-    box-shadow: 0 6px 22px rgba(29,78,216,0.35);
+    background: #fff;
+    color: var(--navy);
+    box-shadow: 0 8px 22px rgba(0,0,0,0.2);
   }
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(34,211,238,0.4); }
-  .btn-secondary { background: transparent; color: var(--navy); border: 1px solid var(--border); }
-  .btn-secondary:hover { background: #f5f8fd; border-color: var(--blue); color: var(--blue); }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(0,0,0,0.28); }
+  .btn-secondary { background: rgba(255,255,255,0.08); color: #fff; border: 1px solid rgba(255,255,255,0.5); }
+  .btn-secondary:hover { background: rgba(255,255,255,0.18); border-color: #fff; color: #fff; }
 
   /* ── FOOTER ── */
   footer {
@@ -517,66 +525,82 @@
     .section { padding: 4rem 1rem; }
   }
 
-    /* ── CENTERED FOOTER ── */
+    /* ── DARK FOOTER ── */
     footer.u-footer {
-      background: var(--bg);
-      border-top: 1px solid var(--border);
-      color: var(--text-mid);
+      background: linear-gradient(180deg, #0a1530 0%, #050b1c 100%);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      color: #9aa7c0;
       padding: 4rem 2.5rem 1.5rem;
       margin-top: 0;
     }
-    .footer-brand-block {
-      max-width: 220px;
-      text-align: center;
+    .f-grid {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.1fr 1fr 1.2fr;
+      gap: 3.5rem;
+      align-items: start;
+      text-align: left;
+      padding-bottom: 2.5rem;
     }
-    .footer-logo-wrap {
-      display: inline-block;
-      margin-bottom: 1rem;
-      position: relative;
-    }
-    .footer-logo-wrap::before {
-      content: '';
-      position: absolute;
-      inset: -14px;
-      background: radial-gradient(circle, rgba(59,130,246,0.15), transparent 65%);
-      border-radius: 50%;
-      z-index: -1;
-    }
-    .footer-logo-wrap img {
-      max-width: 120px;
+    .f-brand img {
       width: 100%;
+      max-width: 170px;
       height: auto;
       display: block;
-      margin: 0 auto;
       border-radius: 14px;
-      box-shadow: 0 8px 26px rgba(29,78,216,0.15);
+      box-shadow: 0 8px 28px rgba(34,211,238,0.18);
     }
-    .footer-tagline {
-      font-family: 'Times New Roman', Times, serif;
-      font-style: italic;
-      font-size: 0.95rem;
-      color: var(--navy);
+    .f-brand p {
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: var(--cyan);
+      max-width: 300px;
+    }
+    .f-col h4 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 1.2rem;
+    }
+    .f-name { color: #e6ecf8; font-weight: 700; font-size: 0.95rem; margin-bottom: 0.2rem; }
+    .f-name a { color: inherit; text-decoration: none; }
+    .f-name a:hover { color: var(--cyan); }
+    .f-role { font-size: 0.92rem; color: #9aa7c0; margin-bottom: 1rem; }
+    .f-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.92rem;
+      color: #9aa7c0;
+      text-decoration: none;
+      margin-bottom: 0.7rem;
       line-height: 1.5;
     }
-    .u-footer-grid {
-      max-width: 1100px !important; margin: 0 auto;
-      display: grid !important; grid-template-columns: auto 1fr 1fr !important;
-      gap: 3rem !important; align-items: start !important;
-      padding-bottom: 2.5rem !important;
-      border-bottom: 1px solid var(--border) !important;
+    .f-item i { width: 16px; flex-shrink: 0; text-align: center; margin-top: 0.3rem; color: #7c8aa8; font-size: 0.8rem; }
+    .f-item a { color: inherit; text-decoration: none; }
+    a.f-item:hover, .f-item a:hover { color: var(--cyan); }
+    .f-links { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem 2rem; }
+    .f-links a { color: #9aa7c0; text-decoration: none; font-size: 0.92rem; }
+    .f-links a:hover { color: var(--cyan); }
+    .f-ext { display: inline-block; margin-top: 1rem; font-size: 0.8rem; color: #7c8aa8; text-decoration: none; }
+    .f-ext:hover { color: var(--cyan); }
+    .f-bottom {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      text-align: center;
+      font-size: 0.82rem;
+      color: #7c8aa8;
     }
-    .u-footer-col { text-align: center !important; }
-    .u-footer-col h4 {
-      display: inline-flex !important; align-items: center; gap: 0.6rem;
-    }
-    .u-footer-col h4::before, .u-footer-col h4::after {
-      content: '';
-      width: 24px; height: 1px;
-      background: linear-gradient(90deg, transparent, var(--blue), transparent);
-    }
+    .f-bottom a { color: inherit; text-decoration: none; border-bottom: 1px dotted currentColor; }
     @media (max-width: 900px) {
-      .u-footer-grid { grid-template-columns: 1fr !important; }
-      .footer-brand-block { max-width: 100%; margin: 0 auto; }
+      .f-grid { grid-template-columns: 1fr; gap: 2.2rem; }
     }
 
 </style>
@@ -663,8 +687,8 @@
 <!-- PI SECTION -->
 <section class="section pi-section">
   <div class="section-inner">
-     <h2 class="section-heading"> Faculty</h2>
     
+    <h2 class="section-heading" style="text-align:center;">Faculty</h2>
     <div class="pi-card">
       <img src="pi-photo.jpg" alt="Dr. Moumita Patra">
       <div>
@@ -701,7 +725,6 @@
 <!-- FACULTY SECTION -->
 <section class="section faculty-section">
   <div class="section-inner">
-    
     <h2 class="section-heading">Associated Faculty</h2>
     <div class="faculty-grid">
       <div class="faculty-card">
@@ -756,46 +779,47 @@
 
 <!-- JOIN US -->
 <section class="join-section">
-  <div class="eyebrow">Join Us</div>
-  <h2>Join the NGS Lab Family</h2>
-  <p class="join-sub">We welcome motivated students interested in wireless networks, network security, and IoV/UAV systems. Openings available for B.Tech projects, M.Tech theses, and PhD positions.</p>
-  <div class="hero-buttons">
-    <a class="btn-primary" href="people.html">Meet Our Team</a>
-    <a class="btn-secondary" href="mailto:moumita.patra@iitg.ac.in">Get In Touch</a>
+  <div class="join-block">
+    <div class="eyebrow">Join Us</div>
+    <h2>Join the NGS Lab Family</h2>
+    <p class="join-sub">We welcome motivated students interested in wireless networks, network security, and IoV/UAV systems.</p>
+    <div class="hero-buttons">
+      <a class="btn-primary" href="people.html">Meet Our Team</a>
+      <a class="btn-secondary" href="mailto:moumita.patra@iitg.ac.in">Get In Touch</a>
+    </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer class="u-footer">
-    <div class="u-footer-grid">
-      <div class="footer-brand-block">
-        <div class="footer-logo-wrap">
-          <img src="ngs-logo.jpeg" alt="NGS Lab logo">
-        </div>
-        <p class="footer-tagline">Next Generation Systems Lab</p>
-      </div>
-      <div class="u-footer-col">
-        <h4>Contact</h4>
-        <p style="color: var(--navy); font-weight: 700;">
-          <a href="https://patramoumita88.wixsite.com/moumita" target="_blank" rel="noopener" style="color: var(--navy);">Dr. Moumita Patra</a>
-        </p>
-        <p>Associate Professor</p>
-        <a href="tel:+913612582365"><i class="fas fa-phone"></i> +91 361 258 2365</a>
-        <a href="mailto:moumita.patra@iitg.ac.in"><i class="fas fa-envelope"></i> moumita.patra@iitg.ac.in</a>
-        <p><i class="fas fa-map-marker-alt"></i> Dept. of CSE, <a href="https://www.iitg.ac.in/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px dotted currentColor;">IIT Guwahati</a>, Assam – 781039</p>
-      </div>
-      <div class="u-footer-col">
-        <h4>Quick Links</h4>
+  <div class="f-grid">
+    <div class="f-brand">
+      <img src="ngs-logo.jpeg" alt="NGS Lab logo">
+      <p>Designing secure, resilient, and resource-efficient systems for next-generation wireless networks.</p>
+    </div>
+    <div class="f-col">
+      <h4>Contact</h4>
+      <div class="f-name"><a href="https://patramoumita88.wixsite.com/moumita" target="_blank" rel="noopener">Dr. Moumita Patra</a></div>
+      <div class="f-role">Associate Professor</div>
+      <a class="f-item" href="tel:+913612582365"><i class="fas fa-phone"></i><span>+91 361 258 2365</span></a>
+      <a class="f-item" href="mailto:moumita.patra@iitg.ac.in"><i class="fas fa-envelope"></i><span>moumita.patra@iitg.ac.in</span></a>
+      <div class="f-item"><i class="fas fa-location-dot"></i><span>Dept. of CSE, <a href="https://www.iitg.ac.in/" target="_blank" rel="noopener">IIT Guwahati</a>, Assam – 781039</span></div>
+    </div>
+    <div class="f-col">
+      <h4>Quick Links</h4>
+      <div class="f-links">
         <a href="index.html">Home</a>
         <a href="research.html">Research</a>
-        <a href="publications.html">Publications</a>
         <a href="people.html">People</a>
+        <a href="publications.html">Publications</a>
         <a href="gallery.html">Gallery</a>
         <a href="news.html">News</a>
       </div>
+      <a class="f-ext" href="https://www.iitg.ac.in/cse" target="_blank" rel="noopener">↗ IIT Guwahati CSE Department</a>
     </div>
-    <div class="u-footer-bottom">&copy; 2026 NGS Lab, <a href="https://www.iitg.ac.in/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px dotted currentColor;">IIT Guwahati</a> · All rights reserved. &nbsp;·&nbsp; Last updated: September 2026</div>
-  </footer>
+  </div>
+  <div class="f-bottom">&copy; 2026 NGS Lab, <a href="https://www.iitg.ac.in/" target="_blank" rel="noopener">IIT Guwahati</a> · All rights reserved. &nbsp;·&nbsp; Last updated: September 2026</div>
+</footer>
 
 <script>
   (function() {
