@@ -251,9 +251,12 @@ a.person-card:hover { border-color: var(--cyan); }
 .filter-tab:hover { border-color: var(--cyan); color: var(--cyan); }
 .filter-tab.active { color: #fff; }
 
+/* ── ANIMATED CIRCUIT BACKGROUND ── */
+#bgCircuit { position: fixed; inset: 0; z-index: -1; pointer-events: none; }
 </style>
 </head>
 <body>
+<canvas id="bgCircuit" aria-hidden="true"></canvas>
 
 <header id="siteHeader">
   <div class="brand">
@@ -395,5 +398,127 @@ a.person-card:hover { border-color: var(--cyan); }
 
 </script>
 
+<script>
+/* Animated circuit-board background: faint traces with glowing pulses travelling along them */
+(function () {
+  var cv = document.getElementById('bgCircuit');
+  if (!cv || !cv.getContext) return;
+  var ctx = cv.getContext('2d');
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var G = 36, W, H, dpr, layer, traces = [], pulses = [], last = 0, timer = null, raf = null;
+  var COLORS = ['34,211,238', '34,211,238', '34,211,238', '96,165,250', '96,165,250', '251,191,36'];
+
+  function rnd(a, b) { return a + Math.random() * (b - a); }
+
+  function makeTrace(cols, rows) {
+    var x = Math.floor(rnd(0, cols)), y = Math.floor(rnd(0, rows));
+    var horiz = Math.random() < 0.5, sgn = Math.random() < 0.5 ? 1 : -1;
+    var pts = [[x * G, y * G]], segs = Math.floor(rnd(3, 7));
+    for (var s = 0; s < segs; s++) {
+      var L = Math.floor(rnd(2, 7)), dx, dy;
+      if (Math.random() < 0.28) { dx = (Math.random() < 0.5 ? 1 : -1); dy = (Math.random() < 0.5 ? 1 : -1); }
+      else { dx = horiz ? sgn : 0; dy = horiz ? 0 : sgn; }
+      x += dx * L; y += dy * L;
+      pts.push([x * G, y * G]);
+      horiz = !horiz; sgn = Math.random() < 0.5 ? 1 : -1;
+    }
+    var cum = [0], len = 0;
+    for (var i = 1; i < pts.length; i++) {
+      len += Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]);
+      cum.push(len);
+    }
+    return { pts: pts, cum: cum, len: len };
+  }
+
+  function pointAt(t, d) {
+    d = Math.max(0, Math.min(d, t.len));
+    var i = 1;
+    while (i < t.cum.length - 1 && t.cum[i] < d) i++;
+    var seg = t.cum[i] - t.cum[i - 1] || 1, k = (d - t.cum[i - 1]) / seg;
+    var a = t.pts[i - 1], b = t.pts[i];
+    return [a[0] + (b[0] - a[0]) * k, a[1] + (b[1] - a[1]) * k];
+  }
+
+  function drawStatic() {
+    var c = layer.getContext('2d');
+    c.setTransform(dpr, 0, 0, dpr, 0, 0);
+    c.clearRect(0, 0, W, H);
+    c.lineJoin = 'round';
+    traces.forEach(function (t) {
+      c.beginPath();
+      t.pts.forEach(function (p, i) { i ? c.lineTo(p[0], p[1]) : c.moveTo(p[0], p[1]); });
+      c.strokeStyle = 'rgba(59,130,246,0.17)'; c.lineWidth = 1; c.stroke();
+      var e = [t.pts[0], t.pts[t.pts.length - 1]];
+      e.forEach(function (p) {
+        c.beginPath(); c.arc(p[0], p[1], 3.2, 0, 6.2832);
+        c.fillStyle = 'rgba(33,35,49,0.9)'; c.fill();
+        c.strokeStyle = 'rgba(59,130,246,0.4)'; c.stroke();
+      });
+      for (var i = 1; i < t.pts.length - 1; i++) {
+        c.beginPath(); c.arc(t.pts[i][0], t.pts[i][1], 1.3, 0, 6.2832);
+        c.fillStyle = 'rgba(96,165,250,0.35)'; c.fill();
+      }
+    });
+    // a few faint "chip" outlines
+    var chips = Math.max(2, Math.round(W * H / 260000));
+    for (var k = 0; k < chips; k++) {
+      var cw = G * Math.floor(rnd(2, 4)), ch = G * Math.floor(rnd(2, 4));
+      var cx = Math.floor(rnd(0, W / G)) * G, cy = Math.floor(rnd(0, H / G)) * G;
+      c.strokeStyle = 'rgba(59,130,246,0.09)'; c.strokeRect(cx, cy, cw, ch);
+      c.strokeRect(cx + 6, cy + 6, cw - 12, ch - 12);
+    }
+  }
+
+  function build() {
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = window.innerWidth; H = window.innerHeight;
+    cv.width = W * dpr; cv.height = H * dpr;
+    cv.style.width = W + 'px'; cv.style.height = H + 'px';
+    layer = document.createElement('canvas'); layer.width = cv.width; layer.height = cv.height;
+    var cols = Math.ceil(W / G), rows = Math.ceil(H / G);
+    var n = Math.min(70, Math.round(W * H / 30000));
+    traces = []; pulses = [];
+    for (var i = 0; i < n; i++) traces.push(makeTrace(cols, rows));
+    drawStatic();
+    traces.forEach(function (t) {
+      pulses.push({ t: t, d: rnd(0, t.len), v: rnd(28, 75), c: COLORS[Math.floor(Math.random() * COLORS.length)] });
+    });
+    render(0);
+  }
+
+  function render(dt) {
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, W, H);
+    ctx.drawImage(layer, 0, 0, W, H);
+    if (reduce) return;
+    pulses.forEach(function (p) {
+      p.d += p.v * dt;
+      if (p.d > p.t.len + 20) { p.d = -rnd(0, 120); p.c = COLORS[Math.floor(Math.random() * COLORS.length)]; }
+      if (p.d < 0) return;
+      var a = pointAt(p.t, p.d), b = pointAt(p.t, p.d - 26);
+      ctx.beginPath(); ctx.moveTo(b[0], b[1]); ctx.lineTo(a[0], a[1]);
+      ctx.strokeStyle = 'rgba(' + p.c + ',0.5)'; ctx.lineWidth = 1.6; ctx.stroke();
+      var g = ctx.createRadialGradient(a[0], a[1], 0, a[0], a[1], 8);
+      g.addColorStop(0, 'rgba(' + p.c + ',0.95)'); g.addColorStop(1, 'rgba(' + p.c + ',0)');
+      ctx.fillStyle = g; ctx.beginPath(); ctx.arc(a[0], a[1], 8, 0, 6.2832); ctx.fill();
+    });
+  }
+
+  function loop(ts) {
+    raf = requestAnimationFrame(loop);
+    if (ts - last < 33) return;            // ~30 fps keeps it light
+    var dt = Math.min((ts - last) / 1000, 0.1); last = ts;
+    render(dt);
+  }
+  function start() { if (!reduce && !raf) { last = performance.now(); raf = requestAnimationFrame(loop); } }
+  function stop() { if (raf) { cancelAnimationFrame(raf); raf = null; } }
+
+  build(); start();
+  document.addEventListener('visibilitychange', function () { document.hidden ? stop() : start(); });
+  window.addEventListener('resize', function () {
+    clearTimeout(timer); timer = setTimeout(function () { stop(); build(); start(); }, 200);
+  });
+})();
+</script>
 </body>
 </html>
